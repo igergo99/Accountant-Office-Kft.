@@ -1,10 +1,5 @@
 import React from 'react';
 
-export default function HomePAgeView() {
-  return (
-    <div>
-      <div>DKFGAJSVBAJHG</div>
-      HomePAgeView
-    </div>
-  );
+export default function HomePageView() {
+  return <div>HomePageView</div>;
 }

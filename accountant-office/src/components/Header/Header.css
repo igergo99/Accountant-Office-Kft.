@@ -1,0 +1,38 @@
+.header-container {
+  width: 100%;
+  background-color: brown;
+  padding: 20px 20px;
+}
+.header-container ul {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+.header-container li {
+  color: white;
+  list-style: none;
+}
+.header-container a {
+  color: white;
+  text-decoration: none;
+}
+.services {
+  padding-bottom: 10px;
+}
+.header-dropdown ul {
+  border-radius: 10px;
+  margin-top: 10px;
+  gap: 20px;
+  padding: 10px;
+  justify-content: center;
+  border: 2px solid black;
+  position: absolute;
+  background-color: wheat;
+  display: flex;
+  flex-direction: column;
+  z-index: 999;
+}
+.header-dropdown a {
+  color: black;
+}
