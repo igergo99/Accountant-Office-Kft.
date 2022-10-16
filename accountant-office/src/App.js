@@ -8,6 +8,8 @@ import ContactUsView from './views/ContactUsView';
 import ContactView from './views/ContactView';
 import ScrollToTop from './others/ScrollToTop';
 import HomePageLayout from './layouts/HomePageLayout';
+import AdminView from './views/AdminView';
+import ActualitiesFormView from './views/ActualitiesFormView';
 function App() {
   return (
     <div className='App'>
@@ -23,6 +25,8 @@ function App() {
           <Route path='/impressum' element={<ImpressumView />} />
           <Route path='/contactus' element={<ContactUsView />} />
           <Route path='/contact' element={<ContactView />} />
+          <Route path='/admin' element={<AdminView />} />
+          <Route path='/actualitiesForm' element={<ActualitiesFormView />} />
         </Route>
       </Routes>
     </div>
