@@ -9,7 +9,12 @@ export default function Header() {
     <div className='header-container'>
       <ul>
         <li>
-          <NavLink to='/'>Rólunk</NavLink>
+          <NavLink to='/'>LOGÓ</NavLink>
+        </li>
+      </ul>
+      <ul>
+        <li>
+          <NavLink to='/aboutus'>Rólunk</NavLink>
         </li>
         <div>
           <li

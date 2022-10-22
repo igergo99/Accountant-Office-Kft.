@@ -10,16 +10,20 @@ import ScrollToTop from './others/ScrollToTop';
 import HomePageLayout from './layouts/HomePageLayout';
 import AdminView from './views/AdminView';
 import ActualitiesFormView from './views/ActualitiesFormView';
+import AboutUsView from './views/AboutUsView';
+import TaxPageView from './views/ServicesPages/TaxPageView';
+import SalaryPageView from './views/ServicesPages/SalaryPageView';
+import AccountingPageView from './views/ServicesPages/AccountingPageView';
 function App() {
   return (
     <div className='App'>
       <Routes>
         <Route element={<HomePageLayout />}>
           <Route path='/' element={<HomePageView />} />
-          <Route path='/aboutus' element={<HomePageView />} />
-          <Route path='/services/accounting' element={<HomePageView />} />
-          <Route path='/services/tax' element={<HomePageView />} />
-          <Route path='/services/salary' element={<HomePageView />} />
+          <Route path='/aboutus' element={<AboutUsView />} />
+          <Route path='/services/accounting' element={<AccountingPageView />} />
+          <Route path='/services/tax' element={<TaxPageView />} />
+          <Route path='/services/salary' element={<SalaryPageView />} />
           <Route path='/actualities' element={<ActualitiesView />} />
           <Route path='/references' element={<ReferencesView />} />
           <Route path='/impressum' element={<ImpressumView />} />
