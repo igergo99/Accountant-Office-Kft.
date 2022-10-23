@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import React from 'react';
-const MapComponent = ({ eventInfo }) => {
+import './MapComponentStyle.css';
+const MapComponent = () => {
   const [map, setMap] = useState();
   const [marker, setMarker] = useState();
   const ref = useRef(null);
@@ -15,22 +16,36 @@ const MapComponent = ({ eventInfo }) => {
     }
 
     if (map) {
+      setMarker(
+        new window.google.maps.Marker({
+          position: { lat: 47.019996, lng: 20.286777 },
+          map,
+          optimized: true,
+          animation: window.google.maps.Animation.DROP,
+          icon: {
+            url: 'https://img.icons8.com/doodle/48/000000/google-maps-new.png',
+            size: new window.google.maps.Size(32, 32),
+            scaledSize: new window.google.maps.Size(32, 32),
+            anchor: new window.google.maps.Point(0, 32),
+          },
+        })
+      );
       map.setOptions({
-        zoom: 6.5,
+        zoom: 15,
         // center: { lat: eventInfo[1]?.geoLat, lng: eventInfo[1]?.geoLng },
-        center: { lat: 47.162494, lng: 19.503304 },
+        center: { lat: 47.019996, lng: 20.286777 },
         // disableDefaultUI: true,
         mapTypeControl: false,
         streetViewControl: false,
         // gestureHandling: "greedy",
       });
     }
-    return (
-      <>
-        <div className='goole-maps-search-container' ref={ref}></div>
-      </>
-    );
   }, [ref, map]);
+  return (
+    <>
+      <div className='google-maps-container' ref={ref}></div>
+    </>
+  );
 };
 
 export default MapComponent;

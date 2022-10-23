@@ -5,9 +5,12 @@ import { useState } from 'react';
 
 const ContactView = () => {
   const [eventsCard, setEventsCard] = useState({});
-  <Wrapper apiKey={'AIzaSyDfMN3btdZnnkpyEUYF-5pzVGkawsxFKFQ'}>
-    <MapComponent eventInfo={eventsCard} />
-  </Wrapper>;
-  return <div>{MapComponent()}</div>;
+  return (
+    <>
+      <Wrapper apiKey={'AIzaSyCHUoQzDGtL1W11uqhZirFpmo3Q_Z--6ik'}>
+        <MapComponent />
+      </Wrapper>
+    </>
+  );
 };
 export default ContactView;
