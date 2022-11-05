@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from '../config/firebase';
 export default function AdminView() {
   const [data, setData] = useState({
@@ -14,13 +14,23 @@ export default function AdminView() {
       ...data,
       [e.target.name]: e.target.value,
     });
-    console.log(data);
   };
   const submitHandler = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((authCredential) => {
         navigateTo('/actualitiesForm');
+      })
+      .then(setTimeout(signOut(auth), 86400000))
+      .catch((e) => {
+        console.log(e);
+      });
+  };
+  const signOutClickHandler = (e) => {
+    e.preventDefault();
+    signOut(auth)
+      .then((authCredential) => {
+        navigateTo('/');
       })
       .catch((e) => {
         console.log(e);
@@ -40,6 +50,9 @@ export default function AdminView() {
         />
         <button type='submit'>Sign in!</button>
       </form>
+      <button type='button' onClick={signOutClickHandler}>
+        Sign out!
+      </button>
     </div>
   );
 }
