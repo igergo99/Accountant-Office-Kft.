@@ -73,7 +73,7 @@ export default function ActualititesFormView() {
   const submitHandler = (e) => {
     e.preventDefault();
     if (auth) {
-      createNewData('Actualities', actualitiesData);
+      createNewData('ActualitiesDataBase', actualitiesData);
     } else {
       console.log('nem sikerült a feltöltés');
     }
