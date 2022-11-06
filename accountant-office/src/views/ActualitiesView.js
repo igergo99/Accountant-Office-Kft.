@@ -19,7 +19,7 @@ export default function ActualitiesView() {
   return (
     <div className='actualities-card-container'>
       {dataArray.map((actualitiesObj, index) => {
-        return <ActualitiesCard actualitiesObj={actualitiesObj} />;
+        return <ActualitiesCard actualitiesObj={actualitiesObj} key={index} />;
       })}
     </div>
   );
