@@ -1,9 +1,9 @@
 .footer-container {
   width: 100vw;
-  background-color: brown;
-  position: absolute;
-  bottom: 0;
-  padding: 20px;
+  background-color: black;
+  z-index: 999;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 .footer-container ul {
   margin: 0;

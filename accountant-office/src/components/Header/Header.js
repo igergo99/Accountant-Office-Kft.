@@ -1,18 +1,39 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import './Header.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faVihara } from '@fortawesome/free-solid-svg-icons';
+
 export default function Header() {
   const [dropDownOpen, setDropDownOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(null);
 
+  useEffect(() => {
+    const scrollHandler = () => {
+      console.log(window.pageYOffset);
+      if (window.pageYOffset === 0) {
+        setScrolled(null);
+      }
+      if (window.pageYOffset > 70) {
+        setScrolled(true);
+      }
+    };
+    window.addEventListener('scroll', scrollHandler);
+  }, []);
   return (
-    <div className='header-container'>
-      <ul>
+    <div
+      className={scrolled ? 'header-container-scrolled' : 'header-container-unscrolled'}
+    >
+      <ul className='header-logo-container'>
         <li>
-          <NavLink to='/'>LOGÓ</NavLink>
+          <NavLink to='/'>
+            <span>Accountant Office Kft.</span>
+            <FontAwesomeIcon icon={faVihara} />
+          </NavLink>
         </li>
       </ul>
-      <ul>
+      <ul className='header-link-container'>
         <li>
           <NavLink to='/aboutus'>Rólunk</NavLink>
         </li>
