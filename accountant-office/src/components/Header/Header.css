@@ -2,19 +2,26 @@
   width: 100vw;
   z-index: 999;
   background-color: rgba(142, 47, 47, 0);
-  padding: 20px 20px;
-  position: sticky;
-
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: fixed;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   top: 0;
   transition: all 0.3s ease-out;
 }
 .header-container-scrolled {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   width: 100vw;
   z-index: 999;
-  background-color: rgb(41, 49, 53, 0.95);
+  background-color: rgb(0, 0, 0, 0.95);
   animation-duration: 0.1s;
-  padding: 20px 20px;
-  position: sticky;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  position: fixed;
   top: 0;
 }
 
@@ -22,34 +29,48 @@
   display: flex;
   width: fit-content;
   flex-direction: row;
-  float: right;
+  vertical-align: middle;
   margin: 0;
   padding: 0;
 }
 .header-link-container li {
   padding-left: 15px;
   padding-right: 15px;
-  font-size: 20px;
+  font-size: 22px;
 }
 .header-logo-container {
   width: fit-content;
-
   margin: 0;
   padding: 0;
 }
+.header-logo-container h1 {
+  margin: 0;
+}
 .header-container-unscrolled li {
   color: white;
+  align-self: center;
   list-style: none;
 }
 .header-container-unscrolled a {
+  display: flex;
+  flex-direction: row;
   color: white;
   text-decoration: none;
 }
+.header-container-unscrolled div {
+  align-self: center;
+}
 .header-container-scrolled li {
+  align-self: center;
   color: white;
   list-style: none;
 }
+.header-container-scrolled div {
+  align-self: center;
+}
 .header-container-scrolled a {
+  display: flex;
+  flex-direction: row;
   color: white;
   text-decoration: none;
 }
@@ -62,13 +83,24 @@
   gap: 20px;
   padding: 10px;
   justify-content: center;
-  border: 2px solid black;
+  border: 1px solid black;
   position: absolute;
-  background-color: wheat;
+  background-color: rgb(41, 49, 53, 0.95);
   display: flex;
   flex-direction: column;
   z-index: 999;
 }
 .header-dropdown a {
-  color: black;
+  color: white;
+}
+.header-logo {
+  width: 40px;
+  height: 40px;
+  padding-left: 15px;
+  padding-right: 15px;
+  align-self: center;
+}
+.header-name {
+  align-self: center;
+  font-size: 30px;
 }

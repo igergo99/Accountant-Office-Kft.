@@ -11,7 +11,6 @@ export default function Header() {
 
   useEffect(() => {
     const scrollHandler = () => {
-      console.log(window.pageYOffset);
       if (window.pageYOffset === 0) {
         setScrolled(null);
       }
@@ -28,8 +27,8 @@ export default function Header() {
       <ul className='header-logo-container'>
         <li>
           <NavLink to='/'>
-            <span>Accountant Office Kft.</span>
-            <FontAwesomeIcon icon={faVihara} />
+            <FontAwesomeIcon className='header-logo' icon={faVihara} />
+            <h1 className='header-name'>Accountant Office Kft.</h1>
           </NavLink>
         </li>
       </ul>
