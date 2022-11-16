@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ContactUs from '../ContactUs/ContactUs';
 import MapComponent from '../MapComponent/MapComponent';
 import { Wrapper } from '@googlemaps/react-wrapper';
+import { signOut } from '@firebase/auth';
+
 import './Footer.css';
-export default function Footer() {
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUserTie, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
+import { auth } from '../../config/firebase';
+export default function Footer({ isLogged, setIsLogged }) {
+  const signOutClickHandler = (e) => {
+    e.preventDefault();
+    signOut(auth)
+      .then((authCredential) => {
+        setIsLogged(false);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  };
   return (
     <>
       <div className='footer-container'>
@@ -14,6 +29,18 @@ export default function Footer() {
             Teljeskörű gazdasági szolgáltatások, bérszámfejtés, adótanácsadás, könyvelési
             problémák megoldása
           </span>
+          <div className='footer-icon-container'>
+            <NavLink to='/admin'>
+              <FontAwesomeIcon
+                icon={faUserTie}
+                className={isLogged ? 'admin-icon-logged-in' : 'admin-icon-logged-out'}
+              />
+            </NavLink>
+            <FontAwesomeIcon
+              onClick={signOutClickHandler}
+              icon={faArrowRightFromBracket}
+            />
+          </div>
         </div>
         <div className='contact-container'>
           <h1>Kapcsolat</h1>

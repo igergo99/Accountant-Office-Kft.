@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from '../config/firebase';
 import './Admin.css';
-export default function AdminView() {
+export default function AdminView({ setIsLogged }) {
   const [data, setData] = useState({
     email: '',
     password: '',
@@ -20,9 +20,15 @@ export default function AdminView() {
     e.preventDefault();
     signInWithEmailAndPassword(auth, data.email, data.password)
       .then((authCredential) => {
+        setIsLogged(true);
         navigateTo('/actualitiesForm');
       })
-      .then(setTimeout(signOut(auth), 86400000))
+      /* .then(() => {
+        setTimeout(signOut(auth), 86400000);
+      }) */
+      .then(() => {
+        console.log(auth.currentUser);
+      })
       .catch((e) => {
         console.log(e);
       });
@@ -31,7 +37,11 @@ export default function AdminView() {
     e.preventDefault();
     signOut(auth)
       .then((authCredential) => {
+        setIsLogged(false);
         navigateTo('/');
+      })
+      .then(() => {
+        console.log(auth.currentUser);
       })
       .catch((e) => {
         console.log(e);

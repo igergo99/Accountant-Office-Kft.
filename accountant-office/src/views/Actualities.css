@@ -16,8 +16,8 @@
 }
 .actualities-card {
   z-index: 997;
-  transition: all 0.3s ease-out;
-  animation-duration: 1s;
+  transition: all 0.4s ease-out;
+  animation-duration: 1.5s;
   animation-name: fade-in-img;
   width: 250px;
   height: 300px;
@@ -83,7 +83,7 @@
 .article-open-container {
   border: 1px solid black;
   border-radius: 15px;
-  height: 600px;
+  height: 80vh;
   z-index: 998;
   position: absolute;
   top: 120px;
@@ -112,7 +112,7 @@
   border: transparent;
   position: fixed;
   top: 130px;
-  right: 220px;
+  right: 15.5%;
 }
 #x-icon {
   height: 25px;

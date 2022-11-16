@@ -14,13 +14,14 @@ import AboutUsView from './views/AboutUsView';
 import TaxPageView from './views/ServicesPages/TaxPageView';
 import SalaryPageView from './views/ServicesPages/SalaryPageView';
 import AccountingPageView from './views/ServicesPages/AccountingPageView';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 function App() {
+  const [isLogged, setIsLogged] = useState(false);
   return (
     <div className='App'>
       <Routes>
-        <Route element={<HomePageLayout />}>
+        <Route element={<HomePageLayout isLogged={isLogged} setIsLogged={setIsLogged} />}>
           <Route path='/' element={<HomePageView />} />
           <Route path='/aboutus' element={<AboutUsView />} />
           <Route path='/services/accounting' element={<AccountingPageView />} />
@@ -34,8 +35,20 @@ function App() {
           <Route path='/impressum' element={<ImpressumView />} />
           <Route path='/contactus' element={<ContactUsView />} />
           <Route path='/contact' element={<ContactView />} />
-          <Route path='/admin' element={<AdminView />} />
-          <Route path='/actualitiesForm' element={<ActualitiesFormView />} />
+          <Route
+            path='/admin'
+            element={<AdminView isLogged={isLogged} setIsLogged={setIsLogged} />}
+          />
+          <Route
+            path='/actualitiesForm'
+            element={
+              <ActualitiesFormView
+                isLogged={isLogged}
+                perPage={8}
+                setToDefault={() => {}}
+              />
+            }
+          />
         </Route>
       </Routes>
     </div>
