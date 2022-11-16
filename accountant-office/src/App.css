@@ -1,7 +1,12 @@
 .layout-container {
-  margin: 0 auto;
   min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  background-color: rgb(41, 49, 53, 0.95);
+}
+.layout-inner-container {
+  max-width: 85%;
 }

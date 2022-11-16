@@ -14,6 +14,8 @@ import AboutUsView from './views/AboutUsView';
 import TaxPageView from './views/ServicesPages/TaxPageView';
 import SalaryPageView from './views/ServicesPages/SalaryPageView';
 import AccountingPageView from './views/ServicesPages/AccountingPageView';
+import React from 'react';
+
 function App() {
   return (
     <div className='App'>
@@ -24,7 +26,10 @@ function App() {
           <Route path='/services/accounting' element={<AccountingPageView />} />
           <Route path='/services/tax' element={<TaxPageView />} />
           <Route path='/services/salary' element={<SalaryPageView />} />
-          <Route path='/actualities' element={<ActualitiesView />} />
+          <Route
+            path='/actualities'
+            element={<ActualitiesView perPage={8} setToDefault={() => {}} />}
+          />
           <Route path='/references' element={<ReferencesView />} />
           <Route path='/impressum' element={<ImpressumView />} />
           <Route path='/contactus' element={<ContactUsView />} />

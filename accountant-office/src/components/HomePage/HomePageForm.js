@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { createNewData } from '../../services/crud';
+import emailjs from '@emailjs/browser';
 export default function HomePageForm() {
   const [contactInfo, setContactInfo] = useState({
     forName: '',
@@ -38,6 +39,24 @@ export default function HomePageForm() {
           setTimeout(() => {
             setFeedbackMessage(null);
           }, 4000);
+        })
+        .then(() => {
+          emailjs.send(
+            'service_kj49bk7',
+            'template_5x01cic',
+
+            {
+              message: `Név: ${contactInfo.forName} ${contactInfo.lastName}
+               E-mail: ${contactInfo.email} 
+               Tel.: ${contactInfo.phone} 
+               Cégnév: ${contactInfo.company} 
+               Adószám: ${contactInfo.taxNumber} 
+               Város: ${contactInfo.city} 
+               Árajánlat típusa: ${contactInfo.messageType} 
+               Üzenet: ${contactInfo.message}`,
+            },
+            'RLj8LTEQzLT08K4XX'
+          );
         })
         .then(() => {
           setContactInfo({

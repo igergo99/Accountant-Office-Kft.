@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useLayoutEffect, useLocation } from 'react';
 import './homePage.css';
 import HomePageForm from '../components/HomePage/HomePageForm';
 import {
@@ -9,6 +9,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function HomePageView() {
+  useLayoutEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, []);
   const [movingBoxes, setMovingBoxes] = useState(null);
   useEffect(() => {
     setMovingBoxes(true);

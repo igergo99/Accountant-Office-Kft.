@@ -32,12 +32,13 @@ export default function Header() {
           </NavLink>
         </li>
       </ul>
-      <ul className='header-link-container'>
-        <li>
-          <NavLink to='/aboutus'>Rólunk</NavLink>
-        </li>
+      <div className='header-link-container'>
         <div>
-          <li
+          <NavLink to='/aboutus'>Rólunk</NavLink>
+        </div>
+        <div>
+          <div
+            className='dropdown-trigger'
             onMouseEnter={(event) => {
               setDropDownOpen(true);
             }}
@@ -46,7 +47,7 @@ export default function Header() {
             }}
           >
             <span className='services'>Szolgáltatások</span>
-          </li>
+          </div>
           {dropDownOpen && (
             <div
               className='header-dropdown'
@@ -57,30 +58,27 @@ export default function Header() {
                 setDropDownOpen(false);
               }}
             >
-              <ul>
-                <li>
+              <div className='dropdown-menu'>
+                <div>
                   <NavLink to='/services/accounting'>Könyvelés</NavLink>
-                </li>
-                <li>
+                </div>
+                <div>
                   <NavLink to='/services/tax'>Adótanácsadás</NavLink>
-                </li>
-                <li>
+                </div>
+                <div>
                   <NavLink to='/services/salary'>Bérszámfejtés</NavLink>
-                </li>
-              </ul>
+                </div>
+              </div>
             </div>
           )}
         </div>
-        <li>
+        <div>
           <NavLink to='/actualities'>Aktualitások</NavLink>
-        </li>
-        <li>
+        </div>
+        <div>
           <NavLink to='/references'>Referenciák</NavLink>
-        </li>
-        <li>
-          <NavLink to='/contact'>Elérhetőség</NavLink>
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   );
 }

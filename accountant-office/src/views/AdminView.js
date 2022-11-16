@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from '../config/firebase';
+import './Admin.css';
 export default function AdminView() {
   const [data, setData] = useState({
     email: '',
@@ -37,7 +38,7 @@ export default function AdminView() {
       });
   };
   return (
-    <div>
+    <div className='admin-form-container'>
       <form onSubmit={submitHandler}>
         <label>Email:</label>
         <input name='email' value={data.email} type='email' onChange={changeHandler} />

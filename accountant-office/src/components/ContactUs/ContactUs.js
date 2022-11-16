@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { createNewData } from '../../services/crud';
-
+import emailjs from '@emailjs/browser';
 export default function ContactUs() {
   const [contactInfo, setContactInfo] = useState({
     name: '',
@@ -29,7 +29,7 @@ export default function ContactUs() {
     } else {
       createNewData('Messages', contactInfo)
         .then(() => {
-          console.log('siker');
+          console.log('valami');
         })
         .catch((e) => {
           console.log(e);

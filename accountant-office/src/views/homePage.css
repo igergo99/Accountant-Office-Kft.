@@ -4,12 +4,10 @@
   flex-direction: column;
   width: 100%;
   color: white;
+  margin-bottom: 80px;
 }
 .homepage-container img {
   width: 100%;
-}
-.layout-inner-container {
-  max-width: 85%;
 }
 
 .welcome-container {
@@ -23,9 +21,9 @@
   z-index: 998;
   width: fit-content;
   display: inline-block;
-
+  font-size: 30px;
   color: white;
-  transform: translateX(20vw);
+  transform: translateX(6vw);
   transition-duration: 2s;
   transition-delay: 0.3s;
 }
@@ -37,7 +35,7 @@
   display: inline-block;
 
   color: white;
-  transform: translateX(6.5vw);
+  transform: translateX(-2vw);
   transition-duration: 2s;
 }
 .homepage-image-container {
@@ -83,7 +81,7 @@
   color: white;
   z-index: 998;
   background-color: rgba(49, 50, 44, 0.755);
-  border: 1px solid black;
+  border: 1px solid transparent;
   max-width: 70%;
   transform: translateX(-13vw);
   transition-duration: 2s;
@@ -98,7 +96,7 @@
   color: white;
   z-index: 998;
   background-color: rgba(49, 50, 44, 0.755);
-  border: 1px solid black;
+  border: 1px solid transparent;
   max-width: 70%;
   transform: translateX(13vw);
   transition-duration: 2s;
@@ -113,7 +111,7 @@
   color: white;
   z-index: 998;
   background-color: rgba(49, 50, 44, 0.755);
-  border: 1px solid black;
+  border: 1px solid transparent;
   max-width: 70%;
   transform: translateX(-13vw);
   transition-duration: 2s;
@@ -128,7 +126,7 @@
   color: white;
   z-index: 998;
   background-color: rgba(49, 50, 44, 0.755);
-  border: 1px solid black;
+  border: 1px solid transparent;
   max-width: 70%;
   transform: translateX(13vw);
   transition-duration: 2s;
@@ -141,7 +139,7 @@
   margin: 30px 15% 30px 15%;
   max-width: 70%;
   border-radius: 15px;
-  border: 1px solid black;
+  border: 1px solid transparent;
   background-color: rgba(49, 50, 44, 0.755);
   z-index: 998;
 }
