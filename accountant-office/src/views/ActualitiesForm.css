@@ -1,3 +1,153 @@
+.choose-form-container {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  margin-top: 20vh;
+  margin-bottom: 7vh;
+  background-color: rgba(49, 50, 44, 0.755);
+  border-radius: 10px;
+  width: 50vw;
+  height: fit-content;
+}
+.choose-form-header {
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  display: flex;
+  justify-content: center;
+}
+.choose-form-container h1 {
+  font-size: 5vh;
+  margin: 0;
+}
+.new-article-center {
+  display: flex;
+  justify-content: center;
+}
+.article-editer-center {
+  display: flex;
+  justify-content: center;
+}
+.new-article-container {
+  align-items: center;
+  margin-bottom: 5vh;
+  border-radius: 10px;
+  background-color: rgba(32, 33, 36, 1);
+  width: 26.5vw;
+  padding: 2vw;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+}
+.new-article-container:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+.new-article-container svg {
+  height: 10vh;
+}
+.article-editer-container {
+  align-items: center;
+  margin-bottom: 5vh;
+  border-radius: 10px;
+  background-color: rgba(32, 33, 36, 1);
+  width: 26.5vw;
+  padding: 2vw;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+}
+.article-editer-container:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+.article-editer-container svg {
+  height: 10vh;
+}
+
+.new-actualities-container {
+  color: white;
+  padding: 8vh;
+  border-radius: 15px;
+  width: 60vw;
+  background-color: rgba(49, 50, 44, 0.755);
+  margin-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.new-actualities-container button {
+  background-color: rgba(32, 33, 36, 1);
+  color: white;
+  font-size: 3vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  width: 30vw;
+  height: 5vh;
+}
+.max-input-message {
+  color: red;
+}
+.form-button-container {
+  display: flex;
+  justify-content: center;
+}
+.new-actualities-container button:hover {
+  background-color: white;
+  color: black;
+}
+.new-actualities-container label {
+  font-size: 3.5vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+}
+.new-actualities-container input {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 3vh;
+  height: 4vh;
+  width: 50vw;
+}
+.new-actualities-container textarea {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 3vh;
+  height: 10vh;
+  width: 50vw;
+}
 .actualities-form-container {
-  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.actualities-edit-container {
+  margin-top: 10vh;
+}
+.sign-out-button-container {
+  display: flex;
+  justify-content: center;
+}
+.sign-out-button-container button {
+  background-color: rgba(32, 33, 36, 1);
+  font-size: 4vh;
+  color: white;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  margin-top: 1vh;
+  margin-bottom: 10vh;
+  width: 30vw;
+  height: 10vh;
+}
+
+.sign-out-button-container button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
 }

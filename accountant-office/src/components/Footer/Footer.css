@@ -1,4 +1,6 @@
 .footer-container {
+  height: 25vh;
+  flex-shrink: 0;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   width: 100vw;
@@ -44,6 +46,9 @@
   margin: 10px 0 10px 0;
 }
 .copyright-container {
+  flex-shrink: 0;
+  height: 3vh;
+
   padding-bottom: 5px;
   background-color: rgb(32, 33, 36);
   color: white;

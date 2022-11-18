@@ -1,11 +1,17 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareXmark } from '@fortawesome/free-solid-svg-icons';
+import ScrollToTop from '../../others/ScrollToTop';
 
 export default function ActualitiesCard({ actualitiesObj }) {
   const key = actualitiesObj[0];
   const [articleOpen, setArticleOpen] = useState(false);
   const cardClickHandler = (e) => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
     setArticleOpen(true);
   };
   const articleCloser = (e) => {

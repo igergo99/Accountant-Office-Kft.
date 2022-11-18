@@ -40,6 +40,11 @@ export default function ActualitiesView({ perPage, toDefault, setToDefault }) {
   }, [toDefault, itemsPerPage]);
 
   const nextButtonHandler = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
     setCurrentPage(currentPage + 1);
     setfromIndex(fromIndex + itemsPerPage);
     setToIndex(toIndex + itemsPerPage);
@@ -49,6 +54,11 @@ export default function ActualitiesView({ perPage, toDefault, setToDefault }) {
   };
 
   const previousButtonHandler = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
     setCurrentPage(currentPage - 1);
     setfromIndex(fromIndex - itemsPerPage);
     setToIndex(toIndex - itemsPerPage);
@@ -58,6 +68,11 @@ export default function ActualitiesView({ perPage, toDefault, setToDefault }) {
   };
 
   const toFirstPageHandler = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
     setCurrentPage(1);
     setfromIndex(0);
     setToIndex(itemsPerPage);
@@ -67,8 +82,13 @@ export default function ActualitiesView({ perPage, toDefault, setToDefault }) {
   };
 
   const toLastPageHandler = () => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
     setCurrentPage(pageNumber);
-    setfromIndex(totalItems - itemsPerPage);
+    setfromIndex(totalItems - (totalItems % itemsPerPage));
     setToIndex(totalItems);
 
     setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
@@ -82,48 +102,51 @@ export default function ActualitiesView({ perPage, toDefault, setToDefault }) {
 
   return (
     <>
-      <div className='actualities-header'>
-        <h1>Legfrissebb híreink</h1>
-      </div>
-      <div className='actualities-card-container'>
-        {itemsToRender.map((actualitiesObj, index) => {
-          return <ActualitiesCard actualitiesObj={actualitiesObj} key={index} />;
-        })}
-      </div>
-      <div className='article-container'></div>
-      <div className='actualities-button-container'>
-        <div>
-          <button
-            type='button'
-            onClick={toFirstPageHandler}
-            disabled={currentPage > 2 ? '' : 'disabled'}
-          >
-            <FontAwesomeIcon icon={faAnglesLeft} />
-          </button>
-          <button
-            type='button'
-            onClick={previousButtonHandler}
-            disabled={currentPage === 1 ? 'disabled' : ''}
-          >
-            <FontAwesomeIcon icon={faAngleLeft} />
-          </button>
-          <span>{` Page ${currentPage} of ${pageNumber} `}</span>
-          <button
-            type='button'
-            onClick={nextButtonHandler}
-            disabled={currentPage === pageNumber ? 'disabled' : ''}
-          >
-            <FontAwesomeIcon icon={faAngleRight} />
-          </button>
-          <button
-            type='button'
-            onClick={toLastPageHandler}
-            disabled={currentPage < pageNumber - 1 ? '' : 'disabled'}
-          >
-            <FontAwesomeIcon icon={faAnglesRight} />
-          </button>
+      <div className='actualities-container'>
+        <div className='actualities-header'>
+          <h1>Legfrissebb híreink</h1>
+        </div>
+        <div className='actualities-card-container'>
+          {itemsToRender.map((actualitiesObj, index) => {
+            return <ActualitiesCard actualitiesObj={actualitiesObj} key={index} />;
+          })}
+        </div>
+        <div className='article-container'></div>
+        <div className='actualities-button-container'>
+          <div>
+            <button
+              type='button'
+              onClick={toFirstPageHandler}
+              disabled={currentPage > 2 ? '' : 'disabled'}
+            >
+              <FontAwesomeIcon icon={faAnglesLeft} />
+            </button>
+            <button
+              type='button'
+              onClick={previousButtonHandler}
+              disabled={currentPage === 1 ? 'disabled' : ''}
+            >
+              <FontAwesomeIcon icon={faAngleLeft} />
+            </button>
+            <span>{` Page ${currentPage} of ${pageNumber} `}</span>
+            <button
+              type='button'
+              onClick={nextButtonHandler}
+              disabled={currentPage === pageNumber ? 'disabled' : ''}
+            >
+              <FontAwesomeIcon icon={faAngleRight} />
+            </button>
+            <button
+              type='button'
+              onClick={toLastPageHandler}
+              disabled={currentPage < pageNumber - 1 ? '' : 'disabled'}
+            >
+              <FontAwesomeIcon icon={faAnglesRight} />
+            </button>
+          </div>
         </div>
       </div>
+      <img className='actualities-background-image-container' src='church-1993645.jpg' />
     </>
   );
 }

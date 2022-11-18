@@ -5,6 +5,11 @@ import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { auth } from '../config/firebase';
 import './Admin.css';
 export default function AdminView({ setIsLogged }) {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  });
   const [data, setData] = useState({
     email: '',
     password: '',
@@ -33,37 +38,27 @@ export default function AdminView({ setIsLogged }) {
         console.log(e);
       });
   };
-  const signOutClickHandler = (e) => {
-    e.preventDefault();
-    signOut(auth)
-      .then((authCredential) => {
-        setIsLogged(false);
-        navigateTo('/');
-      })
-      .then(() => {
-        console.log(auth.currentUser);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  };
+
   return (
     <div className='admin-form-container'>
       <form onSubmit={submitHandler}>
-        <label>Email:</label>
-        <input name='email' value={data.email} type='email' onChange={changeHandler} />
-        <label>Password:</label>
-        <input
-          name='password'
-          value={data.password}
-          type='password'
-          onChange={changeHandler}
-        />
-        <button type='submit'>Sign in!</button>
+        <div className='email-input-container'>
+          <label>Email:</label>
+          <input name='email' value={data.email} type='email' onChange={changeHandler} />
+        </div>
+        <div className='password-input-container'>
+          <label>Password:</label>
+          <input
+            name='password'
+            value={data.password}
+            type='password'
+            onChange={changeHandler}
+          />
+        </div>
+        <div className='button-container'>
+          <button type='submit'>Sign in!</button>
+        </div>
       </form>
-      <button type='button' onClick={signOutClickHandler}>
-        Sign out!
-      </button>
     </div>
   );
 }

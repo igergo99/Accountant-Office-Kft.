@@ -4,17 +4,19 @@ import ContactUs from '../ContactUs/ContactUs';
 import MapComponent from '../MapComponent/MapComponent';
 import { Wrapper } from '@googlemaps/react-wrapper';
 import { signOut } from '@firebase/auth';
-
+import { useNavigate } from 'react-router-dom';
 import './Footer.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserTie, faArrowRightFromBracket } from '@fortawesome/free-solid-svg-icons';
 import { auth } from '../../config/firebase';
 export default function Footer({ isLogged, setIsLogged }) {
+  const navigateTo = useNavigate();
   const signOutClickHandler = (e) => {
     e.preventDefault();
     signOut(auth)
       .then((authCredential) => {
         setIsLogged(false);
+        navigateTo('/');
       })
       .catch((e) => {
         console.log(e);
@@ -36,10 +38,12 @@ export default function Footer({ isLogged, setIsLogged }) {
                 className={isLogged ? 'admin-icon-logged-in' : 'admin-icon-logged-out'}
               />
             </NavLink>
-            <FontAwesomeIcon
-              onClick={signOutClickHandler}
-              icon={faArrowRightFromBracket}
-            />
+            <NavLink to='/'>
+              <FontAwesomeIcon
+                onClick={signOutClickHandler}
+                icon={faArrowRightFromBracket}
+              />
+            </NavLink>
           </div>
         </div>
         <div className='contact-container'>

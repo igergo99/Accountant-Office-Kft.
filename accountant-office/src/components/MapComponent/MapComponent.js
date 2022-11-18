@@ -23,7 +23,7 @@ const MapComponent = () => {
           optimized: true,
           animation: window.google.maps.Animation.DROP,
           icon: {
-            url: 'https://img.icons8.com/doodle/48/000000/google-maps-new.png',
+            url: 'http://maps.google.com/mapfiles/ms/icons/red-pushpin.png',
             size: new window.google.maps.Size(32, 32),
             scaledSize: new window.google.maps.Size(32, 32),
             anchor: new window.google.maps.Point(0, 32),

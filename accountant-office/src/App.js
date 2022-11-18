@@ -43,6 +43,7 @@ function App() {
             path='/actualitiesForm'
             element={
               <ActualitiesFormView
+                setIsLogged={setIsLogged}
                 isLogged={isLogged}
                 perPage={8}
                 setToDefault={() => {}}

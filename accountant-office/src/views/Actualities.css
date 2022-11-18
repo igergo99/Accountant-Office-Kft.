@@ -1,9 +1,23 @@
+.actualities-background-image-container {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 0;
+}
 .actualities-header {
+  z-index: 998;
   font-size: 25px;
   color: white;
   margin-top: 140px;
 }
+.actualities-container {
+  position: relative;
+  z-index: 998;
+}
 .actualities-card-container {
+  z-index: 998;
   width: 100%;
   margin-top: 20px;
   margin-bottom: 40px;
@@ -11,23 +25,24 @@
 
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+
   flex-wrap: wrap;
 }
 .actualities-card {
-  z-index: 997;
+  z-index: 998;
   transition: all 0.4s ease-out;
   animation-duration: 1.5s;
   animation-name: fade-in-img;
-  width: 250px;
-  height: 300px;
-  border: 1px solid black;
+  width: 19vw;
+  height: 50vh;
+
   border-radius: 15px;
-  margin: 10px;
+  margin: 1vw;
   background-color: rgba(48, 49, 52, 0.95);
 }
 .actualities-card h1 {
   margin-top: 4px;
+  z-index: 998;
   margin-bottom: 4px;
   padding-left: 10px;
   padding-right: 10px;
@@ -39,14 +54,15 @@
   padding-right: 10px;
 }
 .actualities-image-container {
-  height: 125px;
+  height: 20vh;
 }
 .actualities-card img {
   animation-name: fade-in-img;
   animation-duration: 0.5s;
-  border-radius: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
   height: 100%;
-  width: 250px;
+  width: 100%;
   position: relative;
   top: 0;
 }
@@ -63,7 +79,7 @@
   height: 30px;
   margin: 5px;
   border-radius: 15px;
-  border: 1px solid rgba(117, 125, 130, 0.95);
+  border: 1px solid rgba(117, 125, 130, 0);
 }
 .actualities-button-container button:hover {
   background-color: white;
@@ -81,12 +97,12 @@
   }
 }
 .article-open-container {
-  border: 1px solid black;
+  /* border: 1px solid transparent; */
   border-radius: 15px;
-  height: 80vh;
+  height: fit-content;
   z-index: 998;
   position: absolute;
-  top: 120px;
+  top: 40px;
   left: 15%;
   overflow-y: scroll;
   animation-name: fade-in-img;
@@ -111,8 +127,8 @@
   background-color: transparent;
   border: transparent;
   position: fixed;
-  top: 130px;
-  right: 15.5%;
+  top: 185px;
+  right: 20.2vw;
 }
 #x-icon {
   height: 25px;
