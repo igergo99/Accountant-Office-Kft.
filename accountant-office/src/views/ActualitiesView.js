@@ -82,17 +82,18 @@ export default function ActualitiesView({ perPage, toDefault, setToDefault }) {
   };
 
   const toLastPageHandler = () => {
+    setCurrentPage(pageNumber);
+    setfromIndex(totalItems - (totalItems % itemsPerPage));
+
+    setToIndex(totalItems);
+
+    setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
+    console.log('to last page');
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: 'smooth',
     });
-    setCurrentPage(pageNumber);
-    setfromIndex(totalItems - (totalItems % itemsPerPage));
-    setToIndex(totalItems);
-
-    setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
-    console.log('to last page');
   };
 
   useEffect(() => {

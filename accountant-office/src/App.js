@@ -18,15 +18,26 @@ import React, { useEffect, useState } from 'react';
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
+  const [offerButtonOn, setOfferButtonOn] = useState(false);
+  const [servicesButtonOn, setServicesButtonOn] = useState(false);
   return (
     <div className='App'>
       <Routes>
         <Route element={<HomePageLayout isLogged={isLogged} setIsLogged={setIsLogged} />}>
-          <Route path='/' element={<HomePageView />} />
-          <Route path='/aboutus' element={<AboutUsView />} />
-          <Route path='/services/accounting' element={<AccountingPageView />} />
-          <Route path='/services/tax' element={<TaxPageView />} />
-          <Route path='/services/salary' element={<SalaryPageView />} />
+          <Route path='/' element={<HomePageView offerButtonOn={offerButtonOn} />} />
+          <Route
+            path='/aboutus'
+            element={
+              <AboutUsView
+                offerButtonOn={offerButtonOn}
+                setOfferButtonOn={setOfferButtonOn}
+                servicesButtonOn={servicesButtonOn}
+                setServicesButtonOn={setServicesButtonOn}
+              />
+            }
+          />
+          <Route path='/services' element={<AccountingPageView />} />
+
           <Route
             path='/actualities'
             element={<ActualitiesView perPage={8} setToDefault={() => {}} />}

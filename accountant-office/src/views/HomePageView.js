@@ -8,30 +8,34 @@ import {
   faScaleBalanced,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-export default function HomePageView() {
-  useLayoutEffect(() => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
-  }, []);
-  const [movingBoxes, setMovingBoxes] = useState(null);
+export default function HomePageView({ offerButtonOn }) {
+  useLayoutEffect(() => {}, []);
+
   useEffect(() => {
-    setMovingBoxes(true);
+    if (offerButtonOn) {
+      window.scrollTo({
+        top: 1340,
+        left: 0,
+        behavior: 'smooth',
+      });
+    } else {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+    }
   }, []);
   return (
     <div className='homepage-container'>
       <div className='welcome-container'>
-        <h1 className={movingBoxes && 'welcome-head'}>
-          Üdvözöljük az Accountant Office Kft. oldalán!
-        </h1>
-        <span className={movingBoxes && 'welcome-content'}>
+        <h1 className={'welcome-head'}>Üdvözöljük az Accountant Office Kft. oldalán!</h1>
+        <span className={'welcome-content'}>
           Bizalmas ügykezelés, több, mint 30 év tapasztalat, kis - közép és nagyvállalati
           környezetben is!
         </span>
         <div className='homepage-card-container'>
-          <div className={movingBoxes && 'homepage-card1'}>
+          <div className={'homepage-card1'}>
             <div className='homepage-article-even'>
               <h1>Adótanácsadás kis és középvállalkozásoknak</h1>
               <span>
@@ -44,7 +48,7 @@ export default function HomePageView() {
             </div>
             <FontAwesomeIcon className='homepage-icons' icon={faSchoolFlag} />
           </div>
-          <div className={movingBoxes && 'homepage-card2'}>
+          <div className={'homepage-card2'}>
             <FontAwesomeIcon className='homepage-icons' icon={faPepperHot} />
             <div className='homepage-article-odd'>
               <h1>Bérszámfejtés, SZJA bevallás</h1>
@@ -55,7 +59,7 @@ export default function HomePageView() {
               </span>
             </div>
           </div>
-          <div className={movingBoxes && 'homepage-card3'}>
+          <div className={'homepage-card3'}>
             <div className='homepage-article-even'>
               <h1>Gyakorlatias rendelkezésre állás, könyvelési problémáktól mentesen</h1>
               <span>
@@ -66,7 +70,7 @@ export default function HomePageView() {
             </div>
             <FontAwesomeIcon className='homepage-icons' icon={faPersonDigging} />
           </div>
-          <div className={movingBoxes && 'homepage-card4'}>
+          <div className={'homepage-card4'}>
             <FontAwesomeIcon className='homepage-icons' icon={faScaleBalanced} />
             <div className='homepage-article-odd'>
               <h1>Tudjuk, hogy nagy eséllyel segíthetünk</h1>

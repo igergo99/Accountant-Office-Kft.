@@ -99,7 +99,7 @@ export default function HomePageForm() {
       </div>
       <div className='offer-form'>
         <form onSubmit={contactSubmitHandeler}>
-          <div>
+          <div className='input-div'>
             <input
               value={contactInfo.lastName}
               name='lastName'
@@ -113,7 +113,7 @@ export default function HomePageForm() {
               placeholder='Keresztnév'
             />
           </div>
-          <div>
+          <div className='input-div'>
             <input
               value={contactInfo.email}
               name='email'
@@ -127,7 +127,7 @@ export default function HomePageForm() {
               placeholder='Telefonszám'
             />
           </div>
-          <div>
+          <div className='input-div'>
             <input
               value={contactInfo.company}
               name='company'
@@ -141,7 +141,7 @@ export default function HomePageForm() {
               placeholder='Adószám'
             />
           </div>
-          <div>
+          <div className='input-div'>
             <input
               value={contactInfo.city}
               name='city'
@@ -163,12 +163,13 @@ export default function HomePageForm() {
           </div>
 
           <textarea
+            className='input-div'
             value={contactInfo.message}
             name='message'
             onChange={contactChangeHandler}
             placeholder='Üzenet'
           />
-          <div>
+          <div className='offer-button-div'>
             <button>Árajánlat kérés</button>
           </div>
         </form>

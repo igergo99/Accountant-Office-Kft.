@@ -22,6 +22,13 @@ export default function Footer({ isLogged, setIsLogged }) {
         console.log(e);
       });
   };
+  const navigateAdmin = (e) => {
+    if (isLogged) {
+      navigateTo('/actualitiesForm');
+    } else {
+      navigateTo('/admin');
+    }
+  };
   return (
     <>
       <div className='footer-container'>
@@ -32,12 +39,12 @@ export default function Footer({ isLogged, setIsLogged }) {
             problémák megoldása
           </span>
           <div className='footer-icon-container'>
-            <NavLink to='/admin'>
-              <FontAwesomeIcon
-                icon={faUserTie}
-                className={isLogged ? 'admin-icon-logged-in' : 'admin-icon-logged-out'}
-              />
-            </NavLink>
+            <FontAwesomeIcon
+              onClick={navigateAdmin}
+              icon={faUserTie}
+              className={isLogged ? 'admin-icon-logged-in' : 'admin-icon-logged-out'}
+            />
+
             <NavLink to='/'>
               <FontAwesomeIcon
                 onClick={signOutClickHandler}

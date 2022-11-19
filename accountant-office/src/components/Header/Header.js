@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faVihara } from '@fortawesome/free-solid-svg-icons';
 
 export default function Header() {
-  const [dropDownOpen, setDropDownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(null);
 
   useEffect(() => {
@@ -37,40 +36,7 @@ export default function Header() {
           <NavLink to='/aboutus'>Rólunk</NavLink>
         </div>
         <div>
-          <div
-            className='dropdown-trigger'
-            onMouseEnter={(event) => {
-              setDropDownOpen(true);
-            }}
-            onMouseLeave={(event) => {
-              setDropDownOpen(false);
-            }}
-          >
-            <span className='services'>Szolgáltatások</span>
-          </div>
-          {dropDownOpen && (
-            <div
-              className='header-dropdown'
-              onMouseEnter={(event) => {
-                setDropDownOpen(true);
-              }}
-              onMouseLeave={(event) => {
-                setDropDownOpen(false);
-              }}
-            >
-              <div className='dropdown-menu'>
-                <div>
-                  <NavLink to='/services/accounting'>Könyvelés</NavLink>
-                </div>
-                <div>
-                  <NavLink to='/services/tax'>Adótanácsadás</NavLink>
-                </div>
-                <div>
-                  <NavLink to='/services/salary'>Bérszámfejtés</NavLink>
-                </div>
-              </div>
-            </div>
-          )}
+          <NavLink to='/services'>Szolgáltatások</NavLink>
         </div>
         <div>
           <NavLink to='/actualities'>Aktualitások</NavLink>

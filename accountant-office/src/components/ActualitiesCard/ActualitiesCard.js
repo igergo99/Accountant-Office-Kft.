@@ -7,12 +7,16 @@ export default function ActualitiesCard({ actualitiesObj }) {
   const key = actualitiesObj[0];
   const [articleOpen, setArticleOpen] = useState(false);
   const cardClickHandler = (e) => {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth',
-    });
-    setArticleOpen(true);
+    if (articleOpen) {
+      setArticleOpen(false);
+    } else {
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+      setArticleOpen(true);
+    }
   };
   const articleCloser = (e) => {
     setArticleOpen(false);
@@ -62,8 +66,8 @@ export default function ActualitiesCard({ actualitiesObj }) {
         <h1>{actualitiesObj[1]?.header}</h1>
 
         <span>
-          {actualitiesObj[1]?.content.length > 170
-            ? actualitiesObj[1]?.content.slice(0, 170) + ' ... '
+          {actualitiesObj[1]?.content.length > 300
+            ? actualitiesObj[1]?.content.slice(0, 300) + ' ... '
             : actualitiesObj[1]?.content}
         </span>
       </div>

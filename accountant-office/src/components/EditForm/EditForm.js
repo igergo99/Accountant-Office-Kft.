@@ -100,7 +100,11 @@ export default function EditForm({ endpointKey, isLogged }) {
     }
     if (actualitiesData.header4) {
       setMaxInputMessage(
-        React.createElement('h1', {}, 'Elérted a maximális inputmező számot!')
+        React.createElement(
+          'h1',
+          { className: 'max-input-message' },
+          'Elérted a maximális inputmező számot!'
+        )
       );
       setTimeout(() => {
         setMaxInputMessage(null);
@@ -126,7 +130,7 @@ export default function EditForm({ endpointKey, isLogged }) {
     <>
       {isLogged && (
         <div className='edit-form-container'>
-          <form onSubmit={submitHandler}>
+          <form className='actualities-form-container' onSubmit={submitHandler}>
             <label htmlFor='headerInput'>Cím: </label>
             <input
               defaultValue={actualitiesData?.header}
@@ -202,10 +206,12 @@ export default function EditForm({ endpointKey, isLogged }) {
             ) : null}
 
             {maxInputMessage ? maxInputMessage : null}
-            <button type='submit'>Feltöltés</button>
-            <button onClick={plusClickHandler} type='button'>
-              +
-            </button>
+            <div className='form-button-container'>
+              <button type='submit'>Feltöltés</button>
+              <button onClick={plusClickHandler} type='button'>
+                +
+              </button>
+            </div>
           </form>
         </div>
       )}

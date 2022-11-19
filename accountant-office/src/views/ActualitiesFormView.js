@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useLayoutEffect } from 'react';
 
 import { useNavigate } from 'react-router-dom';
 import { auth, storage } from '../config/firebase';
-import { createNewData, readData } from '../services/crud';
+import { createNewData, deleteData, readData } from '../services/crud';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import './ActualitiesForm.css';
 import { signOut } from '@firebase/auth';
@@ -14,6 +14,7 @@ import {
   faAnglesLeft,
   faAnglesRight,
   faCircleLeft,
+  faSquareXmark,
 } from '@fortawesome/free-solid-svg-icons';
 import ActualitiesCard from '../components/ActualitiesCard/ActualitiesCard';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -34,7 +35,7 @@ export default function ActualititesFormView({
   const [fromIndex, setfromIndex] = useState(0);
   const [toIndex, setToIndex] = useState(itemsPerPage);
   const [dataArray, setDataArray] = useState([]);
-  const totalItems = dataArray.length;
+  const [totalItems, setTotalItems] = useState(0);
   const pageNumber = Math.ceil(totalItems / itemsPerPage);
   const [itemsToRender, setItemsToRender] = useState([]);
   const [formChoser, setFormChoser] = useState(null);
@@ -48,14 +49,25 @@ export default function ActualititesFormView({
   const [maxInputMessage, setMaxInputMessage] = useState(null);
   const [endpointKey, setEndpointKey] = useState(null);
   const [editWindowOpen, setEditWindowOpen] = useState(null);
+  const [deleteWindowOpen, setDeleteWindowOpen] = useState(null);
   const [formChoserOpen, setFormChoserOpen] = useState(true);
 
   const [uploadButtonDisabled, setUpldoadButtonDisabled] = useState(true);
+  useLayoutEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth',
+    });
+  }, []);
   useEffect(() => {
     const actualitiesDb = readData('ActualitiesDataBase')
       .then((DataSnapshot) => {
         const rawData = DataSnapshot.toJSON();
         setDataArray(Object.entries(rawData));
+      })
+      .then(() => {
+        setTotalItems(dataArray.length);
       })
       .catch((e) => {
         console.log(e);
@@ -210,6 +222,8 @@ export default function ActualititesFormView({
   const backButtonHandler = (e) => {
     setFormChoser(0);
     setFormChoserOpen(true);
+    setDeleteWindowOpen(false);
+    setEditWindowOpen(false);
   };
   const formChoseClickHandler1 = (e) => {
     setFormChoser(1);
@@ -222,6 +236,23 @@ export default function ActualititesFormView({
   const editButtonHandler = (e) => {
     setEndpointKey(e.target.name);
     setEditWindowOpen(true);
+  };
+  const editWindowCloser = (e) => {
+    setEditWindowOpen(false);
+  };
+  const deleteButtonHandler = (e) => {
+    console.log('eventtarget: ', e.target.name);
+    setEndpointKey(e.target.name);
+    console.log('endpointkey: ', endpointKey);
+    setDeleteWindowOpen(true);
+  };
+  const deleteFromDataBase = (e) => {
+    deleteData('ActualitiesDataBase', endpointKey).then(() => {
+      setDeleteWindowOpen(false);
+    });
+  };
+  const cancelHandler = (e) => {
+    setDeleteWindowOpen(false);
   };
 
   const signOutClickHandler = (e) => {
@@ -263,110 +294,140 @@ export default function ActualititesFormView({
         )}
 
         {formChoser === 1 && (
-          <div className='new-actualities-container'>
+          <>
             <div className='back-button'>
               <FontAwesomeIcon onClick={backButtonHandler} icon={faCircleLeft} />
             </div>
-            <div>
-              <form className='actualities-form-container' onSubmit={submitHandler}>
-                <label htmlFor='headerInput'>Cím: </label>
-                <input onChange={changeHandler} name='header' id='headerInput' />
-                <label htmlFor='imageInput'>Kép: </label>
-                <input
-                  type='file'
-                  onChange={photoChangeHandler}
-                  name='image'
-                  id='imageInput'
-                />
-                <div className='form-button-container'>
-                  <button type='button' onClick={imageUploader}>
-                    Kép feltöltése
-                  </button>
-                </div>
-                <label htmlFor='contentInput'>Bevezetés: </label>
-                <textarea onChange={changeHandler} name='content' id='contentInput' />
-                {headerInput2 ? <label>Első bekezdés címe: </label> : null}
-                {headerInput2 ? headerInput2 : null}
-                {inputArea2 ? <label>Első bekezdés szövege: </label> : null}
-                {inputArea2 ? inputArea2 : null}
-                {headerInput3 ? <label>Második bekezdés címe: </label> : null}
-                {headerInput3 ? headerInput3 : null}
-                {inputArea3 ? <label>Második bekezdés szövege: </label> : null}
-                {inputArea3 ? inputArea3 : null}
-                {headerInput4 ? <label>Harmadik bekezdés címe: </label> : null}
-                {headerInput4 ? headerInput4 : null}
-                {inputArea4 ? <label>Harmadik bekezdés szövege: </label> : null}
-                {inputArea4 ? inputArea4 : null}
-
-                {maxInputMessage ? maxInputMessage : null}
-                <div className='form-button-container'>
-                  <button onClick={plusClickHandler} type='button'>
-                    +
-                  </button>
-                </div>
-                <div className='form-button-container'>
-                  <button disabled={uploadButtonDisabled ? 'disabled' : ''} type='submit'>
-                    Feltöltés
-                  </button>
-                </div>
-              </form>
-            </div>
-          </div>
-        )}
-        {formChoser === 2 && (
-          <div className='actualities-edit-container'>
-            <div className='back-button'>
-              <FontAwesomeIcon onClick={backButtonHandler} icon={faCircleLeft} />
-            </div>
-            <div className='actualities-card-container'>
-              {itemsToRender.map((actualitiesObj, index) => {
-                return (
-                  <>
-                    <ActualitiesCard actualitiesObj={actualitiesObj} key={index} />
-                    <button onClick={editButtonHandler} name={actualitiesObj[0]}>
-                      Szerkesztés
-                    </button>
-                  </>
-                );
-              })}
-            </div>
-            <div className='article-container'></div>
-            <div className='actualities-button-container'>
+            <div className='new-actualities-container'>
               <div>
-                <button
-                  type='button'
-                  onClick={toFirstPageHandler}
-                  disabled={currentPage > 2 ? '' : 'disabled'}
-                >
-                  <FontAwesomeIcon icon={faAnglesLeft} />
-                </button>
-                <button
-                  type='button'
-                  onClick={previousButtonHandler}
-                  disabled={currentPage === 1 ? 'disabled' : ''}
-                >
-                  <FontAwesomeIcon icon={faAngleLeft} />
-                </button>
-                <span>{` Page ${currentPage} of ${pageNumber} `}</span>
-                <button
-                  type='button'
-                  onClick={nextButtonHandler}
-                  disabled={currentPage === pageNumber ? 'disabled' : ''}
-                >
-                  <FontAwesomeIcon icon={faAngleRight} />
-                </button>
-                <button
-                  type='button'
-                  onClick={toLastPageHandler}
-                  disabled={currentPage < pageNumber - 1 ? '' : 'disabled'}
-                >
-                  <FontAwesomeIcon icon={faAnglesRight} />
-                </button>
+                <form className='actualities-form-container' onSubmit={submitHandler}>
+                  <label htmlFor='headerInput'>Cím: </label>
+                  <input onChange={changeHandler} name='header' id='headerInput' />
+                  <label htmlFor='imageInput'>Kép: </label>
+                  <input
+                    type='file'
+                    onChange={photoChangeHandler}
+                    name='image'
+                    id='imageInput'
+                  />
+                  <div className='form-button-container'>
+                    <button type='button' onClick={imageUploader}>
+                      Kép feltöltése
+                    </button>
+                  </div>
+                  <label htmlFor='contentInput'>Bevezetés: </label>
+                  <textarea onChange={changeHandler} name='content' id='contentInput' />
+                  {headerInput2 ? <label>Első bekezdés címe: </label> : null}
+                  {headerInput2 ? headerInput2 : null}
+                  {inputArea2 ? <label>Első bekezdés szövege: </label> : null}
+                  {inputArea2 ? inputArea2 : null}
+                  {headerInput3 ? <label>Második bekezdés címe: </label> : null}
+                  {headerInput3 ? headerInput3 : null}
+                  {inputArea3 ? <label>Második bekezdés szövege: </label> : null}
+                  {inputArea3 ? inputArea3 : null}
+                  {headerInput4 ? <label>Harmadik bekezdés címe: </label> : null}
+                  {headerInput4 ? headerInput4 : null}
+                  {inputArea4 ? <label>Harmadik bekezdés szövege: </label> : null}
+                  {inputArea4 ? inputArea4 : null}
+
+                  {maxInputMessage ? maxInputMessage : null}
+                  <div className='form-button-container'>
+                    <button onClick={plusClickHandler} type='button'>
+                      +
+                    </button>
+                  </div>
+                  <div className='form-button-container'>
+                    <button
+                      disabled={uploadButtonDisabled ? 'disabled' : ''}
+                      type='submit'
+                    >
+                      Feltöltés
+                    </button>
+                  </div>
+                </form>
               </div>
             </div>
+          </>
+        )}
+        {formChoser === 2 && (
+          <>
+            <div className='back-button-edit'>
+              <FontAwesomeIcon onClick={backButtonHandler} icon={faCircleLeft} />
+            </div>
+            <div className='actualities-edit-container'>
+              <div className='actualities-card-container'>
+                {itemsToRender.map((actualitiesObj, index) => {
+                  return (
+                    <div className='card-with-buttons'>
+                      <ActualitiesCard actualitiesObj={actualitiesObj} key={index} />
+                      <div className='delete-edit-button-container'>
+                        <button onClick={editButtonHandler} name={actualitiesObj[0]}>
+                          Szerkesztés
+                        </button>
+                        <button onClick={deleteButtonHandler} name={actualitiesObj[0]}>
+                          Törlés
+                        </button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+              <div className='article-container'></div>
+              <div className='actualities-button-container'>
+                <div>
+                  <button
+                    type='button'
+                    onClick={toFirstPageHandler}
+                    disabled={currentPage > 2 ? '' : 'disabled'}
+                  >
+                    <FontAwesomeIcon icon={faAnglesLeft} />
+                  </button>
+                  <button
+                    type='button'
+                    onClick={previousButtonHandler}
+                    disabled={currentPage === 1 ? 'disabled' : ''}
+                  >
+                    <FontAwesomeIcon icon={faAngleLeft} />
+                  </button>
+                  <span>{` Page ${currentPage} of ${pageNumber} `}</span>
+                  <button
+                    type='button'
+                    onClick={nextButtonHandler}
+                    disabled={currentPage === pageNumber ? 'disabled' : ''}
+                  >
+                    <FontAwesomeIcon icon={faAngleRight} />
+                  </button>
+                  <button
+                    type='button'
+                    onClick={toLastPageHandler}
+                    disabled={currentPage < pageNumber - 1 ? '' : 'disabled'}
+                  >
+                    <FontAwesomeIcon icon={faAnglesRight} />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </>
+        )}
+        {editWindowOpen && (
+          <>
+            <div className='edit-window-closer'>
+              <FontAwesomeIcon onClick={editWindowCloser} icon={faSquareXmark} />
+            </div>
+            <EditForm endpointKey={endpointKey} isLogged={isLogged} />
+          </>
+        )}
+        {deleteWindowOpen && (
+          <div className='delete-window'>
+            <h1>Biztosan törli?</h1>
+            <div className='delete-button-container'>
+              <button id='delete-from-data' onClick={deleteFromDataBase}>
+                Törlés
+              </button>
+              <button onClick={cancelHandler}>Mégse</button>
+            </div>
           </div>
         )}
-        {editWindowOpen && <EditForm endpointKey={endpointKey} isLogged={isLogged} />}
         <div className='sign-out-button-container'>
           <button type='button' onClick={signOutClickHandler}>
             Sign out!
