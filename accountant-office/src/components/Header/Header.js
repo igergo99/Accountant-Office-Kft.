@@ -3,10 +3,11 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 import './Header.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faVihara } from '@fortawesome/free-solid-svg-icons';
-
-export default function Header() {
+import { faVihara, faMoon, faSun } from '@fortawesome/free-solid-svg-icons';
+import Switch from 'react-switch';
+export default function Header({ switchChecked, setSwitchChecked }) {
   const [scrolled, setScrolled] = useState(null);
+  const [darkBright, setDarkBright] = useState('bright');
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -19,9 +20,18 @@ export default function Header() {
     };
     window.addEventListener('scroll', scrollHandler);
   }, []);
+  const switchChangeHandler = (e) => {
+    console.log(switchChecked);
+    setSwitchChecked(!switchChecked);
+    /* if (switchChecked) {
+      setDarkBright('bright');
+    } else {
+      setDarkBright('dark');
+    } */
+  };
   return (
     <div
-      className={scrolled ? 'header-container-scrolled' : 'header-container-unscrolled'}
+      className={scrolled ? 'header-container-scrolled' : `header-container-unscrolled`}
     >
       <ul className='header-logo-container'>
         <li>
@@ -43,6 +53,28 @@ export default function Header() {
         </div>
         <div>
           <NavLink to='/references'>Referenciák</NavLink>
+        </div>
+        <div className='switch'>
+          <Switch
+            checked={switchChecked}
+            onChange={switchChangeHandler}
+            onHandleColor='#FFFFFF'
+            offHandleColor='#000000'
+            onColor='#fff'
+            offColor='#050300'
+            checkedHandleIcon={
+              <div className='icon-container'>
+                <FontAwesomeIcon className='sun-icon' icon={faSun} />
+              </div>
+            }
+            uncheckedHandleIcon={
+              <div className='icon-container'>
+                <FontAwesomeIcon className='moon-icon' icon={faMoon} />
+              </div>
+            }
+            checkedIcon={false}
+            uncheckedIcon={false}
+          />
         </div>
       </div>
     </div>

@@ -38,7 +38,7 @@
 
   border-radius: 15px;
   margin: 1vw;
-  background-color: rgba(48, 49, 52, 0.95);
+  background-color: rgba(33, 32, 36, 0.85);
 }
 .actualities-card h1 {
   margin-top: 1vh;
@@ -97,13 +97,15 @@
   }
 }
 .article-open-container {
+  font-size: 2vh;
   /* border: 1px solid transparent; */
   border-radius: 15px;
   max-height: 80vh;
-  z-index: 998;
+
   position: fixed;
   top: 10vh;
   left: 15vw;
+  z-index: 998;
   overflow-y: scroll;
   animation-name: fade-in-img;
   animation-duration: 1s;

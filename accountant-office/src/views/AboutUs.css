@@ -1,4 +1,11 @@
-.about-us-container {
+.about-us-container-bright {
+  width: 80vw;
+  margin-top: 10vh;
+  color: black;
+  position: relative;
+  z-index: 998;
+}
+.about-us-container-dark {
   width: 80vw;
   margin-top: 10vh;
   color: white;
@@ -37,10 +44,10 @@
   display: flex;
   flex-direction: row;
 }
-.ceo-img-header {
+.ceo-img-header-dark {
   border-radius: 15px;
   padding: 1.5vh;
-  background-color: rgba(49, 50, 44, 0.755);
+  background-color: rgba(33, 32, 36, 0.85);
   animation: move-animation-head1 1.7s forwards;
   animation-delay: 0.6s;
   opacity: 0;
@@ -51,6 +58,21 @@
   align-items: center;
   width: 15vw;
 }
+.ceo-img-header-bright {
+  border-radius: 15px;
+  padding: 1.5vh;
+  background-color: white;
+  animation: move-animation-head1 1.7s forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+  font-size: 1.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 15vw;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+}
 .ceo-img-header img {
   border-radius: 10px;
   width: 10vw;
@@ -58,7 +80,7 @@
 .ceo-img-header h2 {
   margin: 0.7vh;
 }
-.ceo-content {
+.ceo-content-dark {
   font-size: 2.25vh;
   border-radius: 15px;
   padding: 2vh;
@@ -66,8 +88,21 @@
   animation-delay: 0.25;
   opacity: 0;
   text-align: justify;
-  background-color: rgba(49, 50, 44, 0.755);
+  background-color: rgba(33, 32, 36, 0.85);
   align-self: center;
+  width: 36vw;
+}
+.ceo-content-bright {
+  font-size: 2.25vh;
+  border-radius: 15px;
+  padding: 2vh;
+  animation: move-animation-content1 2s forwards;
+  animation-delay: 0.25;
+  opacity: 0;
+  text-align: justify;
+  background-color: white;
+  align-self: center;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
   width: 36vw;
 }
 
@@ -98,11 +133,11 @@
   display: flex;
   flex-direction: row;
 }
-.team-img-header {
+.team-img-header-dark {
   opacity: 0;
   border-radius: 15px;
   padding: 1.5vh;
-  background-color: rgba(49, 50, 44, 0.755);
+  background-color: rgba(33, 32, 36, 0.85);
   animation: move-animation-content2 1.7s forwards;
   animation-delay: 1s;
   font-size: 1.5vh;
@@ -112,14 +147,36 @@
   align-items: center;
   width: 15vw;
 }
-.team-img-header img {
+.team-img-header-bright {
+  opacity: 0;
+  border-radius: 15px;
+  padding: 1.5vh;
+  background-color: white;
+  animation: move-animation-content2 1.7s forwards;
+  animation-delay: 1s;
+  font-size: 1.5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 15vw;
+}
+.team-img-header-dark img {
   border-radius: 10px;
   width: 10vw;
 }
-.team-img-header h2 {
+.team-img-header-bright img {
+  border-radius: 10px;
+  width: 10vw;
+}
+.team-img-header-bright h2 {
   margin: 0.7vh;
 }
-.team-content {
+.team-img-header-dark h2 {
+  margin: 0.7vh;
+}
+.team-content-dark {
   opacity: 0;
   font-size: 2.25vh;
   border-radius: 15px;
@@ -127,8 +184,21 @@
   animation: move-animation-head2 2s forwards;
   animation-delay: 0.9s;
   text-align: justify;
-  background-color: rgba(49, 50, 44, 0.755);
+  background-color: rgba(33, 32, 36, 0.85);
   align-self: center;
+  width: 36vw;
+}
+.team-content-bright {
+  opacity: 0;
+  font-size: 2.25vh;
+  border-radius: 15px;
+  padding: 2vh;
+  animation: move-animation-head2 2s forwards;
+  animation-delay: 0.9s;
+  text-align: justify;
+  background-color: white;
+  align-self: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   width: 36vw;
 }
 .homepage-image-container {
@@ -139,7 +209,7 @@
   top: 0;
   z-index: 0;
 }
-.get-offer {
+.get-offer-dark {
   opacity: 0;
   border-radius: 15px;
   font-size: 2.5vh;
@@ -148,24 +218,11 @@
   display: flex;
   flex-direction: row;
   margin: 0 9vw 8vh 0;
-  background-color: rgba(49, 50, 44, 0.755);
+  background-color: rgba(33, 32, 36, 0.85);
   animation: move-animation-head2 2s forwards;
   animation-delay: 0.7s;
 }
-.get-offer button {
-  font-size: 3.2vh;
-  background-color: rgba(33, 32, 36, 1);
-  width: 15vw;
-  color: white;
-  border-radius: 15px;
-  border: 1px solid transparent;
-}
-.get-offer button:hover {
-  cursor: pointer;
-  background-color: white;
-  color: black;
-}
-.get-services {
+.get-offer-bright {
   opacity: 0;
   border-radius: 15px;
   font-size: 2.5vh;
@@ -174,11 +231,12 @@
   display: flex;
   flex-direction: row;
   margin: 0 9vw 8vh 0;
-  background-color: rgba(49, 50, 44, 0.755);
-  animation: move-animation-head1 2s forwards;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  animation: move-animation-head2 2s forwards;
   animation-delay: 0.7s;
 }
-.get-services button {
+.get-offer-dark button {
   font-size: 3.2vh;
   background-color: rgba(33, 32, 36, 1);
   width: 15vw;
@@ -186,8 +244,76 @@
   border-radius: 15px;
   border: 1px solid transparent;
 }
-.get-services button:hover {
+.get-offer-bright button {
+  font-size: 3.2vh;
+  background-color: white;
+  width: 15vw;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+  color: black;
+  border-radius: 15px;
+  border: 1px solid transparent;
+}
+.get-offer-dark button:hover {
   cursor: pointer;
   background-color: white;
   color: black;
+}
+.get-offer-bright button:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+.get-services-dark {
+  opacity: 0;
+  border-radius: 15px;
+  font-size: 2.5vh;
+  justify-content: space-between;
+  padding: 1vw;
+  display: flex;
+  flex-direction: row;
+  margin: 0 9vw 8vh 0;
+  background-color: rgba(33, 32, 36, 0.85);
+  animation: move-animation-head1 2s forwards;
+  animation-delay: 0.7s;
+}
+.get-services-bright {
+  opacity: 0;
+  border-radius: 15px;
+  font-size: 2.5vh;
+  justify-content: space-between;
+  padding: 1vw;
+  display: flex;
+  flex-direction: row;
+  margin: 0 9vw 8vh 0;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+  animation: move-animation-head1 2s forwards;
+  animation-delay: 0.7s;
+}
+.get-services-dark button {
+  font-size: 3.2vh;
+  background-color: rgba(33, 32, 36, 1);
+  width: 15vw;
+  color: white;
+  border-radius: 15px;
+  border: 1px solid transparent;
+}
+.get-services-bright button {
+  font-size: 3.2vh;
+  background-color: white;
+  width: 15vw;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 15px;
+  border: 1px solid transparent;
+}
+.get-services-dark button:hover {
+  cursor: pointer;
+  background-color: white;
+  color: black;
+}
+.get-services-bright button:hover {
+  cursor: pointer;
+  background-color: black;
+  color: white;
 }

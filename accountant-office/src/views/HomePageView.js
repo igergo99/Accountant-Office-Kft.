@@ -8,9 +8,9 @@ import {
   faScaleBalanced,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-export default function HomePageView({ offerButtonOn }) {
+export default function HomePageView({ offerButtonOn, setOfferButtonOn, switchChecked }) {
   useLayoutEffect(() => {}, []);
-
+  useEffect(() => {}, [switchChecked]);
   useEffect(() => {
     if (offerButtonOn) {
       window.scrollTo({
@@ -18,6 +18,7 @@ export default function HomePageView({ offerButtonOn }) {
         left: 0,
         behavior: 'smooth',
       });
+      setOfferButtonOn(false);
     } else {
       window.scrollTo({
         top: 0,
@@ -27,15 +28,23 @@ export default function HomePageView({ offerButtonOn }) {
     }
   }, []);
   return (
-    <div className='homepage-container'>
+    <div
+      className={switchChecked ? 'homepage-container-bright' : 'homepage-container-dark'}
+    >
       <div className='welcome-container'>
-        <h1 className={'welcome-head'}>Üdvözöljük az Accountant Office Kft. oldalán!</h1>
-        <span className={'welcome-content'}>
+        <h1 className={switchChecked ? 'welcome-head-bright' : 'welcome-head-dark'}>
+          Üdvözöljük az Accountant Office Kft. oldalán!
+        </h1>
+        <span
+          className={switchChecked ? 'welcome-content-bright' : 'welcome-content-dark'}
+        >
           Bizalmas ügykezelés, több, mint 30 év tapasztalat, kis - közép és nagyvállalati
           környezetben is!
         </span>
         <div className='homepage-card-container'>
-          <div className={'homepage-card1'}>
+          <div
+            className={switchChecked ? 'homepage-card1-bright' : 'homepage-card1-dark'}
+          >
             <div className='homepage-article-even'>
               <h1>Adótanácsadás kis és középvállalkozásoknak</h1>
               <span>
@@ -48,7 +57,9 @@ export default function HomePageView({ offerButtonOn }) {
             </div>
             <FontAwesomeIcon className='homepage-icons' icon={faSchoolFlag} />
           </div>
-          <div className={'homepage-card2'}>
+          <div
+            className={switchChecked ? 'homepage-card2-bright' : 'homepage-card2-dark'}
+          >
             <FontAwesomeIcon className='homepage-icons' icon={faPepperHot} />
             <div className='homepage-article-odd'>
               <h1>Bérszámfejtés, SZJA bevallás</h1>
@@ -59,7 +70,9 @@ export default function HomePageView({ offerButtonOn }) {
               </span>
             </div>
           </div>
-          <div className={'homepage-card3'}>
+          <div
+            className={switchChecked ? 'homepage-card3-bright' : 'homepage-card3-dark'}
+          >
             <div className='homepage-article-even'>
               <h1>Gyakorlatias rendelkezésre állás, könyvelési problémáktól mentesen</h1>
               <span>
@@ -70,7 +83,9 @@ export default function HomePageView({ offerButtonOn }) {
             </div>
             <FontAwesomeIcon className='homepage-icons' icon={faPersonDigging} />
           </div>
-          <div className={'homepage-card4'}>
+          <div
+            className={switchChecked ? 'homepage-card4-bright' : 'homepage-card4-dark'}
+          >
             <FontAwesomeIcon className='homepage-icons' icon={faScaleBalanced} />
             <div className='homepage-article-odd'>
               <h1>Tudjuk, hogy nagy eséllyel segíthetünk</h1>
@@ -85,8 +100,11 @@ export default function HomePageView({ offerButtonOn }) {
           </div>
         </div>
       </div>
-      <HomePageForm />
-      <img className='homepage-image-container' src='church-1993645.jpg' />
+      <HomePageForm switchChecked={switchChecked} />
+      <img
+        className='homepage-image-container'
+        src={switchChecked ? 'july-pass-3042793.jpg' : 'church-1993645.jpg'}
+      />
     </div>
   );
 }

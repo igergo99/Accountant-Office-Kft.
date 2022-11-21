@@ -1,7 +1,11 @@
 import React from 'react';
 import './AboutUs.css';
 import { useNavigate } from 'react-router-dom';
-export default function AboutUsView({ setOfferButtonOn, setServicesButtonOn }) {
+export default function AboutUsView({
+  setOfferButtonOn,
+  setServicesButtonOn,
+  switchChecked,
+}) {
   window.scrollTo({
     top: 0,
     left: 0,
@@ -18,15 +22,21 @@ export default function AboutUsView({ setOfferButtonOn, setServicesButtonOn }) {
   };
   return (
     <>
-      <div className='about-us-container'>
+      <div
+        className={
+          switchChecked ? 'about-us-container-bright' : 'about-us-container-dark'
+        }
+      >
         <h1 className='about-us-header'>Ismerjen meg minket!</h1>
         <div className='ceo-container'>
-          <div className='ceo-img-header'>
+          <div
+            className={switchChecked ? 'ceo-img-header-bright' : 'ceo-img-header-dark'}
+          >
             <img src='https://placekitten.com/200/270' />
             <h2>Iglódi Zoltán</h2>
             <h2>Ügyvezető-igazgató</h2>
           </div>
-          <div className='ceo-content'>
+          <div className={switchChecked ? 'ceo-content-bright' : 'ceo-content-dark'}>
             <span>
               A menta szerint főleg a flönbök és a vitmatás szegésén rakodik talfart modás
               a büdvös gatlan csártonok között. „Ha ekehendengés tizálnia lejdíti magát a
@@ -45,12 +55,12 @@ export default function AboutUsView({ setOfferButtonOn, setServicesButtonOn }) {
             </span>
           </div>
         </div>
-        <div className='get-offer'>
+        <div className={switchChecked ? 'get-offer-bright' : 'get-offer-dark'}>
           <h2>Kérjen árajánlatot most!</h2>
           <button onClick={offerButton}>Árajánlat</button>
         </div>
         <div className='team-container'>
-          <div className='team-content'>
+          <div className={switchChecked ? 'team-content-bright' : 'team-content-dark'}>
             <span>
               A menta szerint főleg a flönbök és a vitmatás szegésén rakodik talfart modás
               a büdvös gatlan csártonok között. „Ha ekehendengés tizálnia lejdíti magát a
@@ -68,17 +78,22 @@ export default function AboutUsView({ setOfferButtonOn, setServicesButtonOn }) {
               a tágikus sugas omlása várhatóan letlegesekkel fog cudválnia gyeténye során.
             </span>
           </div>
-          <div className='team-img-header'>
+          <div
+            className={switchChecked ? 'team-img-header-bright' : 'team-img-header-dark'}
+          >
             <img src='https://placekitten.com/200/270' />
             <h2>A csapat</h2>
           </div>
         </div>
-        <div className='get-services'>
+        <div className={switchChecked ? 'get-services-bright' : 'get-services-dark'}>
           <button onClick={servicesButton}>Szolgáltatások</button>
           <h2>Tekintse meg szolgáltatásainkat!</h2>
         </div>
       </div>
-      <img className='homepage-image-container' src='church-1993645.jpg' />
+      <img
+        className='homepage-image-container'
+        src={switchChecked ? 'july-pass-3042793.jpg' : 'church-1993645.jpg'}
+      />
     </>
   );
 }

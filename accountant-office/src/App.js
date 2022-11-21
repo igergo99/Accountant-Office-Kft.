@@ -11,8 +11,7 @@ import HomePageLayout from './layouts/HomePageLayout';
 import AdminView from './views/AdminView';
 import ActualitiesFormView from './views/ActualitiesFormView';
 import AboutUsView from './views/AboutUsView';
-import TaxPageView from './views/ServicesPages/TaxPageView';
-import SalaryPageView from './views/ServicesPages/SalaryPageView';
+
 import AccountingPageView from './views/ServicesPages/AccountingPageView';
 import React, { useEffect, useState } from 'react';
 
@@ -20,15 +19,35 @@ function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [offerButtonOn, setOfferButtonOn] = useState(false);
   const [servicesButtonOn, setServicesButtonOn] = useState(false);
+  const [switchChecked, setSwitchChecked] = useState(true);
   return (
     <div className='App'>
       <Routes>
-        <Route element={<HomePageLayout isLogged={isLogged} setIsLogged={setIsLogged} />}>
-          <Route path='/' element={<HomePageView offerButtonOn={offerButtonOn} />} />
+        <Route
+          element={
+            <HomePageLayout
+              isLogged={isLogged}
+              setIsLogged={setIsLogged}
+              switchChecked={switchChecked}
+              setSwitchChecked={setSwitchChecked}
+            />
+          }
+        >
+          <Route
+            path='/'
+            element={
+              <HomePageView
+                offerButtonOn={offerButtonOn}
+                setOfferButtonOn={setOfferButtonOn}
+                switchChecked={switchChecked}
+              />
+            }
+          />
           <Route
             path='/aboutus'
             element={
               <AboutUsView
+                switchChecked={switchChecked}
                 offerButtonOn={offerButtonOn}
                 setOfferButtonOn={setOfferButtonOn}
                 servicesButtonOn={servicesButtonOn}
@@ -36,24 +55,48 @@ function App() {
               />
             }
           />
-          <Route path='/services' element={<AccountingPageView />} />
+          <Route
+            path='/services'
+            element={
+              <AccountingPageView
+                setOfferButtonOn={setOfferButtonOn}
+                switchChecked={switchChecked}
+              />
+            }
+          />
 
           <Route
             path='/actualities'
-            element={<ActualitiesView perPage={8} setToDefault={() => {}} />}
+            element={
+              <ActualitiesView
+                switchChecked={switchChecked}
+                perPage={8}
+                setToDefault={() => {}}
+              />
+            }
           />
-          <Route path='/references' element={<ReferencesView />} />
+          <Route
+            path='/references'
+            element={<ReferencesView switchChecked={switchChecked} />}
+          />
           <Route path='/impressum' element={<ImpressumView />} />
           <Route path='/contactus' element={<ContactUsView />} />
           <Route path='/contact' element={<ContactView />} />
           <Route
             path='/admin'
-            element={<AdminView isLogged={isLogged} setIsLogged={setIsLogged} />}
+            element={
+              <AdminView
+                switchChecked={switchChecked}
+                isLogged={isLogged}
+                setIsLogged={setIsLogged}
+              />
+            }
           />
           <Route
             path='/actualitiesForm'
             element={
               <ActualitiesFormView
+                switchChecked={switchChecked}
                 setIsLogged={setIsLogged}
                 isLogged={isLogged}
                 perPage={8}

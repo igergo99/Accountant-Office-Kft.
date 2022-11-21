@@ -2,7 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { createNewData } from '../../services/crud';
 import emailjs from '@emailjs/browser';
-export default function HomePageForm() {
+export default function HomePageForm({ switchChecked }) {
   const [contactInfo, setContactInfo] = useState({
     forName: '',
     lastName: '',
@@ -92,12 +92,16 @@ export default function HomePageForm() {
     }
   };
   return (
-    <div className='offer-form-container'>
+    <div
+      className={
+        switchChecked ? 'offer-form-container-bright' : 'offer-form-container-dark'
+      }
+    >
       <div className='offer-form-header'>
         <h1>Árajánlat kérése</h1>
         <h1>{feedbackMessage}</h1>
       </div>
-      <div className='offer-form'>
+      <div className={switchChecked ? 'offer-form-bright' : 'offer-form-dark'}>
         <form onSubmit={contactSubmitHandeler}>
           <div className='input-div'>
             <input
