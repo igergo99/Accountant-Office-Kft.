@@ -18,7 +18,7 @@
     transform: translateY(0vh);
   }
 }
-.active-reference-1 {
+.active-reference-1-dark {
   animation: move-boxes 1s forwards;
 
   margin-bottom: 1vh;
@@ -34,7 +34,23 @@
   flex-direction: column;
   text-align: justify;
 }
-.active-reference-2 {
+.active-reference-1-bright {
+  animation: move-boxes 1s forwards;
+
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  color: black;
+  width: 60vw;
+  height: 20vh;
+  background-color: white;
+  border-radius: 15px;
+  padding: 2vh;
+  font-size: 3.5vh;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+.active-reference-2-dark {
   animation: move-boxes 1s forwards;
   opacity: 0;
 
@@ -52,7 +68,25 @@
   flex-direction: column;
   text-align: justify;
 }
-.active-reference-3 {
+.active-reference-2-bright {
+  animation: move-boxes 1s forwards;
+  opacity: 0;
+
+  animation-delay: 0.3s;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  color: black;
+  width: 60vw;
+  height: 20vh;
+  background-color: white;
+  border-radius: 15px;
+  padding: 2vh;
+  font-size: 3.5vh;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+.active-reference-3-dark {
   animation: move-boxes 1s forwards;
   opacity: 0;
 
@@ -70,7 +104,25 @@
   flex-direction: column;
   text-align: justify;
 }
-.active-reference-4 {
+.active-reference-3-bright {
+  animation: move-boxes 1s forwards;
+  opacity: 0;
+
+  animation-delay: 0.6s;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  color: black;
+  width: 60vw;
+  height: 20vh;
+  background-color: white;
+  border-radius: 15px;
+  padding: 2vh;
+  font-size: 3.5vh;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+.active-reference-4-dark {
   animation: move-boxes 1s forwards;
   opacity: 0;
 
@@ -88,7 +140,25 @@
   flex-direction: column;
   text-align: justify;
 }
-.active-reference-5 {
+.active-reference-4-bright {
+  animation: move-boxes 1s forwards;
+  opacity: 0;
+
+  animation-delay: 0.9s;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  color: black;
+  width: 60vw;
+  height: 20vh;
+  background-color: white;
+  border-radius: 15px;
+  padding: 2vh;
+  font-size: 3.5vh;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+.active-reference-5-dark {
   animation: move-boxes 1s forwards;
   opacity: 0;
 
@@ -99,6 +169,24 @@
   width: 60vw;
   height: 20vh;
   background-color: rgba(33, 32, 36, 0.85);
+  border-radius: 15px;
+  padding: 2vh;
+  font-size: 3.5vh;
+  display: flex;
+  flex-direction: column;
+  text-align: justify;
+}
+.active-reference-5-bright {
+  animation: move-boxes 1s forwards;
+  opacity: 0;
+
+  animation-delay: 1.2s;
+  margin-bottom: 1vh;
+  margin-top: 1vh;
+  color: black;
+  width: 60vw;
+  height: 20vh;
+  background-color: white;
   border-radius: 15px;
   padding: 2vh;
   font-size: 3.5vh;

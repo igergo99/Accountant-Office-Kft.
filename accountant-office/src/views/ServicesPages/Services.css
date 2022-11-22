@@ -13,7 +13,7 @@
     transform: translateY(0vh);
   }
 }
-.accounting-box {
+.accounting-box-dark {
   animation: service-box-move 1s forwards;
   color: white;
   background-color: rgba(33, 32, 36, 0.85);
@@ -29,10 +29,33 @@
   justify-content: center;
   width: 70vw;
 }
-.accounting-box h1 {
+.accounting-box-bright {
+  animation: service-box-move 1s forwards;
+  color: black;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+  border-radius: 15px;
+  padding: 3vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  font-size: 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70vw;
+}
+.accounting-box-dark h1 {
   margin: 0 0 2vh 0;
 }
-.accounting-box span {
+.accounting-box-bright h1 {
+  margin: 0 0 2vh 0;
+}
+.accounting-box-dark span {
+  text-align: justify;
+}
+.accounting-box-bright span {
   text-align: justify;
 }
 .button-container {
@@ -40,7 +63,7 @@
   display: flex;
   justify-content: center;
 }
-.accounting-box button {
+.accounting-box-dark button {
   width: 15vw;
   height: 5vh;
   border-radius: 10px;
@@ -49,12 +72,27 @@
   color: white;
   font-size: 2.5vh;
 }
-.accounting-box button:hover {
+.accounting-box-bright button {
+  width: 15vw;
+  height: 5vh;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+  color: black;
+  font-size: 2.5vh;
+}
+.accounting-box-dark button:hover {
   background-color: white;
   color: black;
   cursor: pointer;
 }
-.tax-box {
+.accounting-box-bright button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.tax-box-dark {
   animation: service-box-move 1s forwards;
   opacity: 0;
   animation-delay: 0.2s;
@@ -72,14 +110,39 @@
   justify-content: center;
   width: 70vw;
 }
-.tax-box h1 {
+.tax-box-bright {
+  animation: service-box-move 1s forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+  color: black;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+  border-radius: 15px;
+  padding: 3vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  font-size: 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70vw;
+}
+.tax-box-dark h1 {
   margin: 0 0 2vh 0;
 }
-.tax-box span {
+.tax-box-bright h1 {
+  margin: 0 0 2vh 0;
+}
+.tax-box-dark span {
+  text-align: justify;
+}
+.tax-box-bright span {
   text-align: justify;
 }
 
-.tax-box button {
+.tax-box-dark button {
   width: 15vw;
   height: 5vh;
   border-radius: 10px;
@@ -88,12 +151,27 @@
   color: white;
   font-size: 2.5vh;
 }
-.tax-box button:hover {
+.tax-box-bright button {
+  width: 15vw;
+  height: 5vh;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+  color: black;
+  font-size: 2.5vh;
+}
+.tax-box-dark button:hover {
   background-color: white;
   color: black;
   cursor: pointer;
 }
-.salary-box {
+.tax-box-bright button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.salary-box-dark {
   animation: service-box-move 1s forwards;
   color: white;
   opacity: 0;
@@ -111,14 +189,39 @@
   justify-content: center;
   width: 70vw;
 }
-.salary-box h1 {
+.salary-box-bright {
+  animation: service-box-move 1s forwards;
+  color: black;
+  opacity: 0;
+  animation-delay: 0.4s;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+  border-radius: 15px;
+  padding: 3vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  font-size: 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70vw;
+}
+.salary-box-dark h1 {
   margin: 0 0 2vh 0;
 }
-.salary-box span {
+.salary-box-bright h1 {
+  margin: 0 0 2vh 0;
+}
+.salary-box-dark span {
+  text-align: justify;
+}
+.salary-box-bright span {
   text-align: justify;
 }
 
-.salary-box button {
+.salary-box-dark button {
   width: 15vw;
   height: 5vh;
   border-radius: 10px;
@@ -127,12 +230,27 @@
   color: white;
   font-size: 2.5vh;
 }
-.salary-box button:hover {
+.salary-box-bright button {
+  width: 15vw;
+  height: 5vh;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+  color: black;
+  font-size: 2.5vh;
+}
+.salary-box-dark button:hover {
   background-color: white;
   color: black;
   cursor: pointer;
 }
-.annual-report-box {
+.salary-box-bright button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.annual-report-box-dark {
   animation: service-box-move 1s forwards;
   animation-delay: 0.6s;
   opacity: 0;
@@ -150,14 +268,39 @@
   justify-content: center;
   width: 70vw;
 }
-.annual-report-box h1 {
+.annual-report-box-bright {
+  animation: service-box-move 1s forwards;
+  animation-delay: 0.6s;
+  opacity: 0;
+  color: black;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+  border-radius: 15px;
+  padding: 3vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  font-size: 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70vw;
+}
+.annual-report-box-dark h1 {
   margin: 0 0 2vh 0;
 }
-.annual-report-box span {
+.annual-report-box-bright h1 {
+  margin: 0 0 2vh 0;
+}
+.annual-report-box-dark span {
+  text-align: justify;
+}
+.annual-report-box-bright span {
   text-align: justify;
 }
 
-.annual-report-box button {
+.annual-report-box-dark button {
   width: 15vw;
   height: 5vh;
   border-radius: 10px;
@@ -166,12 +309,27 @@
   color: white;
   font-size: 2.5vh;
 }
-.annual-report-box button:hover {
+.annual-report-box-bright button {
+  width: 15vw;
+  height: 5vh;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+  color: black;
+  font-size: 2.5vh;
+}
+.annual-report-box-dark button:hover {
   background-color: white;
   color: black;
   cursor: pointer;
 }
-.web-developement-box {
+.annual-report-box-bright button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
+.web-developement-box-dark {
   animation: service-box-move 1s forwards;
   opacity: 0;
   animation-delay: 0.8s;
@@ -189,14 +347,39 @@
   justify-content: center;
   width: 70vw;
 }
-.web-developement-box h1 {
+.web-developement-box-bright {
+  animation: service-box-move 1s forwards;
+  opacity: 0;
+  animation-delay: 0.8s;
+  color: black;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
+  border-radius: 15px;
+  padding: 3vh;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-top: 3vh;
+  margin-bottom: 3vh;
+  font-size: 2vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 70vw;
+}
+.web-developement-box-dark h1 {
   margin: 0 0 2vh 0;
 }
-.web-developement-box span {
+.web-developement-box-bright h1 {
+  margin: 0 0 2vh 0;
+}
+.web-developement-box-dark span {
+  text-align: justify;
+}
+.web-developement-box-bright span {
   text-align: justify;
 }
 
-.web-developement-box button {
+.web-developement-box-dark button {
   width: 15vw;
   height: 5vh;
   border-radius: 10px;
@@ -205,8 +388,23 @@
   color: white;
   font-size: 2.5vh;
 }
-.web-developement-box button:hover {
+.web-developement-box-bright button {
+  width: 15vw;
+  height: 5vh;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
   background-color: white;
   color: black;
+  font-size: 2.5vh;
+}
+.web-developement-box-dark button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}
+.web-developement-box-bright button:hover {
+  background-color: black;
+  color: white;
   cursor: pointer;
 }

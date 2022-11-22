@@ -10,7 +10,12 @@ import {
   faAnglesRight,
 } from '@fortawesome/free-solid-svg-icons';
 
-export default function ActualitiesView({ perPage, toDefault, setToDefault }) {
+export default function ActualitiesView({
+  perPage,
+  toDefault,
+  setToDefault,
+  switchChecked,
+}) {
   const itemsPerPage = perPage;
   const [currentPage, setCurrentPage] = useState(1);
   const [fromIndex, setfromIndex] = useState(0);
@@ -30,7 +35,7 @@ export default function ActualitiesView({ perPage, toDefault, setToDefault }) {
       .catch((e) => {
         console.log(e);
       });
-  }, []);
+  }, [switchChecked]);
   useEffect(() => {
     if (toDefault) {
       setCurrentPage(1);
@@ -104,16 +109,32 @@ export default function ActualitiesView({ perPage, toDefault, setToDefault }) {
   return (
     <>
       <div className='actualities-container'>
-        <div className='actualities-header'>
+        <div
+          className={
+            switchChecked ? 'actualities-header-bright' : 'actualities-header-dark'
+          }
+        >
           <h1>Legfrissebb híreink</h1>
         </div>
         <div className='actualities-card-container'>
           {itemsToRender.map((actualitiesObj, index) => {
-            return <ActualitiesCard actualitiesObj={actualitiesObj} key={index} />;
+            return (
+              <ActualitiesCard
+                switchChecked={switchChecked}
+                actualitiesObj={actualitiesObj}
+                key={index}
+              />
+            );
           })}
         </div>
         <div className='article-container'></div>
-        <div className='actualities-button-container'>
+        <div
+          className={
+            switchChecked
+              ? 'actualities-button-container-bright'
+              : 'actualities-button-container-dark'
+          }
+        >
           <div>
             <button
               type='button'
@@ -147,7 +168,10 @@ export default function ActualitiesView({ perPage, toDefault, setToDefault }) {
           </div>
         </div>
       </div>
-      <img className='actualities-background-image-container' src='church-1993645.jpg' />
+      <img
+        className='homepage-image-container'
+        src={switchChecked ? 'july-pass-3042793.jpg' : 'church-1993645.jpg'}
+      />
     </>
   );
 }

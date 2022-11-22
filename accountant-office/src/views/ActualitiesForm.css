@@ -9,6 +9,7 @@
   width: 50vw;
   height: fit-content;
 }
+
 .choose-form-header {
   margin-top: 5vh;
   margin-bottom: 5vh;
@@ -302,4 +303,23 @@
 .edit-window-closer svg {
   font-size: 3vh;
   color: rgb(245, 35, 35);
+}
+.actualities-button-container {
+  color: white;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8vh;
+}
+.actualities-button-container button {
+  background-color: rgba(48, 49, 52, 0.95);
+  color: white;
+  width: 51px;
+  height: 30px;
+  margin: 5px;
+  border-radius: 15px;
+  border: 1px solid rgba(117, 125, 130, 0);
+}
+.actualities-button-container button:hover {
+  background-color: white;
+  color: black;
 }

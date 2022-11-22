@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquareXmark } from '@fortawesome/free-solid-svg-icons';
 import ScrollToTop from '../../others/ScrollToTop';
 
-export default function ActualitiesCard({ actualitiesObj }) {
+export default function ActualitiesCard({ actualitiesObj, switchChecked }) {
   const key = actualitiesObj[0];
   const [articleOpen, setArticleOpen] = useState(false);
   const cardClickHandler = (e) => {
@@ -23,35 +23,45 @@ export default function ActualitiesCard({ actualitiesObj }) {
   };
   return (
     <div>
-      <div
-        className={articleOpen ? 'article-open-container' : 'article-closed-container'}
-      >
-        <button onClick={articleCloser}>
-          <FontAwesomeIcon id='x-icon' icon={faSquareXmark} />
-        </button>
-        <div className='article-image-container'>
-          <img
-            src={
-              actualitiesObj[1].imageUrl
-                ? actualitiesObj[1]?.imageUrl
-                : 'https://firebasestorage.googleapis.com/v0/b/accountant-office.appspot.com/o/actualities%2Fcalculator.jpg?alt=media&token=ebc319b2-dc41-4f44-b4c3-36827a06fe35'
+      {articleOpen && (
+        <>
+          <div onClick={articleCloser} className='article-open-background'></div>
+          <div
+            className={
+              switchChecked
+                ? 'article-open-container-bright'
+                : 'article-open-container-dark'
             }
-          ></img>
-        </div>
-        <div className='article-content-container'>
-          <h1 className='article-header'>{actualitiesObj[1]?.header}</h1>
-          <span className='article-preface'>{actualitiesObj[1]?.content}</span>
-          <h2 className='article-paragraph-header'>{actualitiesObj[1]?.header2}</h2>
-          <span className='article-preface'>{actualitiesObj[1]?.content2}</span>
-          <h2 className='article-paragraph-header'>{actualitiesObj[1]?.header3}</h2>
-          <span className='article-preface'>{actualitiesObj[1]?.content3}</span>
-          <h2 className='article-paragraph-header'>{actualitiesObj[1]?.header4}</h2>
-          <span className='article-preface'>{actualitiesObj[1]?.content4}</span>
-        </div>
-      </div>
+          >
+            <button onClick={articleCloser}>
+              <FontAwesomeIcon id='x-icon' icon={faSquareXmark} />
+            </button>
+            <div className='article-image-container'>
+              <img
+                src={
+                  actualitiesObj[1].imageUrl
+                    ? actualitiesObj[1]?.imageUrl
+                    : 'https://firebasestorage.googleapis.com/v0/b/accountant-office.appspot.com/o/actualities%2Fcalculator.jpg?alt=media&token=ebc319b2-dc41-4f44-b4c3-36827a06fe35'
+                }
+              ></img>
+            </div>
+            <div className='article-content-container'>
+              <h1 className='article-header'>{actualitiesObj[1]?.header}</h1>
+              <span className='article-preface'>{actualitiesObj[1]?.content}</span>
+              <h2 className='article-paragraph-header'>{actualitiesObj[1]?.header2}</h2>
+              <span className='article-preface'>{actualitiesObj[1]?.content2}</span>
+              <h2 className='article-paragraph-header'>{actualitiesObj[1]?.header3}</h2>
+              <span className='article-preface'>{actualitiesObj[1]?.content3}</span>
+              <h2 className='article-paragraph-header'>{actualitiesObj[1]?.header4}</h2>
+              <span className='article-preface'>{actualitiesObj[1]?.content4}</span>
+            </div>
+          </div>
+        </>
+      )}
+
       <div
         onClick={cardClickHandler}
-        className='actualities-card'
+        className={switchChecked ? 'actualities-card-bright' : 'actualities-card-dark'}
         key={`actualitiesCard/${key}`}
       >
         <div className='actualities-image-container'>
@@ -65,11 +75,7 @@ export default function ActualitiesCard({ actualitiesObj }) {
         </div>
         <h1>{actualitiesObj[1]?.header}</h1>
 
-        <span>
-          {actualitiesObj[1]?.content.length > 300
-            ? actualitiesObj[1]?.content.slice(0, 300) + ' ... '
-            : actualitiesObj[1]?.content}
-        </span>
+        <span>{actualitiesObj[1]?.content}</span>
       </div>
     </div>
   );

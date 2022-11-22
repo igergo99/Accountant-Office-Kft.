@@ -26,6 +26,7 @@ export default function ActualititesFormView({
   toDefault,
   setToDefault,
   setIsLogged,
+  switchChecked,
 }) {
   const navigateTo = useNavigate();
 
@@ -36,7 +37,7 @@ export default function ActualititesFormView({
   const [toIndex, setToIndex] = useState(itemsPerPage);
   const [dataArray, setDataArray] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
-  const pageNumber = Math.ceil(totalItems / itemsPerPage);
+
   const [itemsToRender, setItemsToRender] = useState([]);
   const [formChoser, setFormChoser] = useState(null);
   const [actualitiesData, setActualitiesData] = useState({});
@@ -51,6 +52,7 @@ export default function ActualititesFormView({
   const [editWindowOpen, setEditWindowOpen] = useState(null);
   const [deleteWindowOpen, setDeleteWindowOpen] = useState(null);
   const [formChoserOpen, setFormChoserOpen] = useState(true);
+  const pageNumber = Math.ceil(totalItems / itemsPerPage);
 
   const [uploadButtonDisabled, setUpldoadButtonDisabled] = useState(true);
   useLayoutEffect(() => {
@@ -72,7 +74,7 @@ export default function ActualititesFormView({
       .catch((e) => {
         console.log(e);
       });
-  }, []);
+  }, [switchChecked]);
   useEffect(() => {
     if (toDefault) {
       setCurrentPage(1);

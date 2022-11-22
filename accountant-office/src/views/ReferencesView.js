@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './References.css';
-export default function ReferencesView() {
+export default function ReferencesView({ switchChecked }) {
   const [referenceChoser, setReferenceChoser] = useState(true);
   useEffect(() => {
     setTimeout(() => {
@@ -10,7 +10,11 @@ export default function ReferencesView() {
   return (
     <>
       <div className='references-container'>
-        <div className={'active-reference-1'}>
+        <div
+          className={
+            switchChecked ? 'active-reference-1-bright' : 'active-reference-1-dark'
+          }
+        >
           <span>
             "The art of war teaches us to rely not on the likelihood of the enemy's not
             coming, but on our own readiness to receive him; not on the chance of his not
@@ -21,7 +25,11 @@ export default function ReferencesView() {
             <span>-Sun Tzu-</span>
           </div>
         </div>
-        <div className={'active-reference-2'}>
+        <div
+          className={
+            switchChecked ? 'active-reference-2-bright' : 'active-reference-2-dark'
+          }
+        >
           <span>
             "The art of war teaches us to rely not on the likelihood of the enemy's not
             coming, but on our own readiness to receive him; not on the chance of his not
@@ -32,7 +40,11 @@ export default function ReferencesView() {
             <span>-Sun Tzu-</span>
           </div>
         </div>
-        <div className={'active-reference-3'}>
+        <div
+          className={
+            switchChecked ? 'active-reference-3-bright' : 'active-reference-3-dark'
+          }
+        >
           <span>
             "The art of war teaches us to rely not on the likelihood of the enemy's not
             coming, but on our own readiness to receive him; not on the chance of his not
@@ -43,7 +55,11 @@ export default function ReferencesView() {
             <span>-Sun Tzu-</span>
           </div>
         </div>
-        <div className={'active-reference-4'}>
+        <div
+          className={
+            switchChecked ? 'active-reference-4-bright' : 'active-reference-4-dark'
+          }
+        >
           <span>
             "The art of war teaches us to rely not on the likelihood of the enemy's not
             coming, but on our own readiness to receive him; not on the chance of his not
@@ -54,7 +70,11 @@ export default function ReferencesView() {
             <span>-Sun Tzu-</span>
           </div>
         </div>
-        <div className={'active-reference-5'}>
+        <div
+          className={
+            switchChecked ? 'active-reference-5-bright' : 'active-reference-5-dark'
+          }
+        >
           <span>
             "The art of war teaches us to rely not on the likelihood of the enemy's not
             coming, but on our own readiness to receive him; not on the chance of his not
@@ -66,7 +86,10 @@ export default function ReferencesView() {
           </div>
         </div>
       </div>
-      <img className='homepage-image-container' src='church-1993645.jpg' />
+      <img
+        className='homepage-image-container'
+        src={switchChecked ? 'july-pass-3042793.jpg' : 'church-1993645.jpg'}
+      />
     </>
   );
 }
