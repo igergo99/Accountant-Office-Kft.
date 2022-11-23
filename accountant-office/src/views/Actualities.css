@@ -78,8 +78,8 @@
   width: 17vw;
   display: inline-block;
   max-height: 21.5vh;
-
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   text-overflow: ellipsis;
   text-align: justify;
   /* Required for text-overflow to do anything */
@@ -91,7 +91,8 @@
   display: inline-block;
   max-height: 21.5vh;
   width: 17vw;
-  overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: scroll;
   text-overflow: ellipsis;
   text-align: justify;
   padding-left: 1vw;

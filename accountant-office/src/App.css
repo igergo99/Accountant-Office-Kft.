@@ -2,6 +2,7 @@
   font-family: -apple-system-body;
 }
 .layout-container {
+  overflow-x: hidden;
   /* margin-bottom: 30vh; */
   min-height: 100vh;
   justify-content: center;

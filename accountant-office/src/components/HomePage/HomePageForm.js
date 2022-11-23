@@ -99,7 +99,7 @@ export default function HomePageForm({ switchChecked }) {
     >
       <div className='offer-form-header'>
         <h1>Árajánlat kérése</h1>
-        <h1>{feedbackMessage}</h1>
+        <h1 className='feedback-message'>{feedbackMessage}</h1>
       </div>
       <div className={switchChecked ? 'offer-form-bright' : 'offer-form-dark'}>
         <form onSubmit={contactSubmitHandeler}>
@@ -147,6 +147,7 @@ export default function HomePageForm({ switchChecked }) {
           </div>
           <div className='input-div'>
             <input
+              id='city-input'
               value={contactInfo.city}
               name='city'
               onChange={contactChangeHandler}
