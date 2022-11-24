@@ -46,7 +46,11 @@ export default function ActualitiesCard({ actualitiesObj, switchChecked }) {
               ></img>
             </div>
             <div className='article-content-container'>
-              <h1 className='article-header'>{actualitiesObj[1]?.header}</h1>
+              <div className='article-head-date'>
+                <h1 className='article-header'>{actualitiesObj[1]?.header}</h1>
+                <span className='article-date'>{actualitiesObj[1]?.date}</span>
+              </div>
+
               <span className='article-preface'>{actualitiesObj[1]?.content}</span>
               <h2 className='article-paragraph-header'>{actualitiesObj[1]?.header2}</h2>
               <span className='article-preface'>{actualitiesObj[1]?.content2}</span>

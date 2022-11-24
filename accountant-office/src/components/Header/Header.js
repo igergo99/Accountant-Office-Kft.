@@ -86,22 +86,33 @@ export default function Header({ switchChecked, setSwitchChecked }) {
           </div>
         </div>
         {hamburgerOn && (
-          <div
-            className={switchChecked ? 'hamburger-menu-bright' : 'hamburger-menu-dark'}
-          >
-            <div>
-              <NavLink to='/aboutus'>Rólunk</NavLink>
+          <>
+            <div
+              className={switchChecked ? 'hamburger-menu-bright' : 'hamburger-menu-dark'}
+            >
+              <div>
+                <NavLink onClick={hamburgerHandler} to='/aboutus'>
+                  Rólunk
+                </NavLink>
+              </div>
+              <div>
+                <NavLink onClick={hamburgerHandler} to='/services'>
+                  Szolgáltatások
+                </NavLink>
+              </div>
+              <div>
+                <NavLink onClick={hamburgerHandler} to='/actualities'>
+                  Aktualitások
+                </NavLink>
+              </div>
+              <div>
+                <NavLink onClick={hamburgerHandler} to='/references'>
+                  Referenciák
+                </NavLink>
+              </div>
             </div>
-            <div>
-              <NavLink to='/services'>Szolgáltatások</NavLink>
-            </div>
-            <div>
-              <NavLink to='/actualities'>Aktualitások</NavLink>
-            </div>
-            <div>
-              <NavLink to='/references'>Referenciák</NavLink>
-            </div>
-          </div>
+            <div onClick={hamburgerHandler} className='hamburger-dark-back'></div>
+          </>
         )}
       </div>
     </>

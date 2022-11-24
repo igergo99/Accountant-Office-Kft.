@@ -16,6 +16,11 @@ export default function ActualitiesView({
   setToDefault,
   switchChecked,
 }) {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  });
   const itemsPerPage = perPage;
   const [currentPage, setCurrentPage] = useState(1);
   const [fromIndex, setfromIndex] = useState(0);

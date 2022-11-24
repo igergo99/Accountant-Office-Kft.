@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import './References.css';
 export default function ReferencesView({ switchChecked }) {
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: 'smooth',
+  });
   const [referenceChoser, setReferenceChoser] = useState(true);
   useEffect(() => {
     setTimeout(() => {

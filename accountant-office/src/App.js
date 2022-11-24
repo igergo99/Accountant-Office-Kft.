@@ -4,8 +4,7 @@ import HomePageView from './views/HomePageView';
 import ActualitiesView from './views/ActualitiesView';
 import ReferencesView from './views/ReferencesView';
 import ImpressumView from './views/ImpressumView';
-import ContactUsView from './views/ContactUsView';
-import ContactView from './views/ContactView';
+
 import ScrollToTop from './others/ScrollToTop';
 import HomePageLayout from './layouts/HomePageLayout';
 import AdminView from './views/AdminView';
@@ -79,9 +78,7 @@ function App() {
             path='/references'
             element={<ReferencesView switchChecked={switchChecked} />}
           />
-          <Route path='/impressum' element={<ImpressumView />} />
-          <Route path='/contactus' element={<ContactUsView />} />
-          <Route path='/contact' element={<ContactView />} />
+
           <Route
             path='/admin'
             element={

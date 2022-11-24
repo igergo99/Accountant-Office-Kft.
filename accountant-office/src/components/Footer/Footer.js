@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
-import ContactUs from '../ContactUs/ContactUs';
+
 import MapComponent from '../MapComponent/MapComponent';
 import { Wrapper } from '@googlemaps/react-wrapper';
 import { signOut } from '@firebase/auth';

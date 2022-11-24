@@ -211,8 +211,14 @@ export default function ActualititesFormView({
 
   const submitHandler = (e) => {
     e.preventDefault();
+    const actualitieDate = new Date();
     if (auth && !uploadButtonDisabled) {
-      createNewData('ActualitiesDataBase', actualitiesData).then(() => {
+      createNewData('ActualitiesDataBase', {
+        ...actualitiesData,
+        date: `${actualitieDate.getFullYear()}.${
+          actualitieDate.getMonth() + 1
+        }.${actualitieDate.getDate()} ${actualitieDate.getHours()}:${actualitieDate.getMinutes()}`,
+      }).then(() => {
         if (actualitiesData !== {}) {
           navigateTo('/');
         }
@@ -374,7 +380,10 @@ export default function ActualititesFormView({
                   );
                 })}
               </div>
-              <div className='article-container'></div>
+              <div
+                onClick={editWindowCloser}
+                className={editWindowOpen && 'article-back-container'}
+              ></div>
               <div className='actualities-button-container'>
                 <div>
                   <button
