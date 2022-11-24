@@ -37,7 +37,7 @@ export default function ActualititesFormView({
   const [toIndex, setToIndex] = useState(itemsPerPage);
   const [dataArray, setDataArray] = useState([]);
   const [totalItems, setTotalItems] = useState(0);
-
+  const [feedBackMessage, setFeedBackMessage] = useState(null);
   const [itemsToRender, setItemsToRender] = useState([]);
   const [formChoser, setFormChoser] = useState(null);
   const [actualitiesData, setActualitiesData] = useState({});
@@ -146,8 +146,25 @@ export default function ActualititesFormView({
             setActualitiesData((prev) => ({ ...prev, imageUrl: value }));
             setUpldoadButtonDisabled(false);
           })
+          .then(() => {
+            window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: 'smooth',
+            });
+            setFeedBackMessage('Sikeres fotó feltöltés!');
+            setTimeout(() => {
+              setFeedBackMessage(null);
+            }, 4000);
+          })
 
-          .catch((e) => console.log(e));
+          .catch((e) => {
+            setFeedBackMessage('Sikertelen fotó feltöltés!');
+            setTimeout(() => {
+              setFeedBackMessage(null);
+            }, 4000);
+            console.log(e);
+          });
       })
       .catch((e) => console.log(e));
   };
@@ -218,13 +235,44 @@ export default function ActualititesFormView({
         date: `${actualitieDate.getFullYear()}.${
           actualitieDate.getMonth() + 1
         }.${actualitieDate.getDate()} ${actualitieDate.getHours()}:${actualitieDate.getMinutes()}`,
-      }).then(() => {
-        if (actualitiesData !== {}) {
-          navigateTo('/');
-        }
-      });
+      })
+        .then(() => {
+          if (actualitiesData !== {}) {
+            window.scrollTo({
+              top: 0,
+              left: 0,
+              behavior: 'smooth',
+            });
+            setFeedBackMessage('Sikeres cikk feltöltés!');
+            setTimeout(() => {
+              setFeedBackMessage(null);
+            }, 4000);
+            backButtonHandler();
+          }
+        })
+        .catch((e) => {
+          window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth',
+          });
+          setFeedBackMessage('Sikertelen cikk feltöltés!');
+          setTimeout(() => {
+            setFeedBackMessage(null);
+          }, 4000);
+          console.log(e);
+        });
     } else {
-      console.log('nem sikerült a feltöltés');
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'smooth',
+      });
+      setFeedBackMessage('Nem sikerült a cikk feltöltés');
+      setTimeout(() => {
+        setFeedBackMessage(null);
+      }, 4000);
+      console.log('Nem sikerült a cikk feltöltés!');
     }
   };
   const backButtonHandler = (e) => {
@@ -255,9 +303,34 @@ export default function ActualititesFormView({
     setDeleteWindowOpen(true);
   };
   const deleteFromDataBase = (e) => {
-    deleteData('ActualitiesDataBase', endpointKey).then(() => {
-      setDeleteWindowOpen(false);
-    });
+    deleteData('ActualitiesDataBase', endpointKey)
+      .then(() => {
+        setDeleteWindowOpen(false);
+      })
+      .then(() => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        });
+        setFeedBackMessage('Sikeres törlés!');
+        setTimeout(() => {
+          setFeedBackMessage(null);
+        }, 4000);
+        backButtonHandler();
+      })
+      .catch((e) => {
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'smooth',
+        });
+        setFeedBackMessage('Sikertelen törlés!');
+        setTimeout(() => {
+          setFeedBackMessage(null);
+        }, 4000);
+        console.log(e);
+      });
   };
   const cancelHandler = (e) => {
     setDeleteWindowOpen(false);
@@ -284,8 +357,10 @@ export default function ActualititesFormView({
         {formChoserOpen && (
           <div className='choose-form-container'>
             <div className='choose-form-header'>
+              {feedBackMessage && <h1>{feedBackMessage}</h1>}
               <h1>Válassz az alábbi két opció közül:</h1>
             </div>
+
             <div className='new-article-center'>
               <div className='new-article-container' onClick={formChoseClickHandler1}>
                 <FontAwesomeIcon name='1' icon={faFileCirclePlus} />
@@ -309,6 +384,7 @@ export default function ActualititesFormView({
             <div className='new-actualities-container'>
               <div>
                 <form className='actualities-form-container' onSubmit={submitHandler}>
+                  {feedBackMessage && <h1>{feedBackMessage}</h1>}
                   <label htmlFor='headerInput'>Cím: </label>
                   <input onChange={changeHandler} name='header' id='headerInput' />
                   <label htmlFor='imageInput'>Kép: </label>
@@ -363,6 +439,7 @@ export default function ActualititesFormView({
               <FontAwesomeIcon onClick={backButtonHandler} icon={faCircleLeft} />
             </div>
             <div className='actualities-edit-container'>
+              {feedBackMessage && <h1>{feedBackMessage}</h1>}
               <div className='actualities-card-container'>
                 {itemsToRender.map((actualitiesObj, index) => {
                   return (

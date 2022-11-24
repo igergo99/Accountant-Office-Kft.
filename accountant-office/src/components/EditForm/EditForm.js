@@ -49,56 +49,59 @@ export default function EditForm({ endpointKey, isLogged }) {
   };
 
   const plusClickHandler = (e) => {
-    if (!actualitiesData?.header2) {
+    console.log('plus hívás');
+    if (!headerInput2) {
+      console.log('plus hívás if1');
       setHeaderInput2(
         React.createElement('input', {
-          value: actualitiesData?.header2,
+          defaultValue: 'Első bekezdés címe:',
+
           name: 'header2',
           onChange: changeHandler,
         })
       );
       setInputArea2(
         React.createElement('textarea', {
-          value: actualitiesData?.content2,
+          defaultValue: 'Első bekezdés szövege:',
 
           name: `content2`,
           onChange: changeHandler,
         })
       );
-    }
-    if (actualitiesData.header2 && !actualitiesData.header3) {
+    } else if (headerInput2 && !headerInput3) {
+      console.log('plus hívás if2');
       setInputArea3(
         React.createElement('textarea', {
-          value: actualitiesData?.content3,
+          defaultValue: 'Második bekezdés szövege:',
           name: `content3`,
           onChange: changeHandler,
         })
       );
       setHeaderInput3(
         React.createElement('input', {
-          value: actualitiesData?.header3,
+          defaultValue: 'Harmadik bekezdés címe:',
           name: 'header3',
           onChange: changeHandler,
         })
       );
-    }
-    if (actualitiesData.header3 && !actualitiesData.header4) {
+    } else if (headerInput3 && !headerInput4) {
+      console.log('plus hívás if3');
       setInputArea4(
         React.createElement('textarea', {
-          value: actualitiesData?.content4,
+          defaultValue: 'Harmadik bekezdés szövege:',
           name: `content4`,
           onChange: changeHandler,
         })
       );
       setHeaderInput4(
         React.createElement('input', {
-          value: actualitiesData?.header4,
+          defaultValue: 'Harmadik bekezdés címe:',
           name: 'header4',
           onChange: changeHandler,
         })
       );
-    }
-    if (actualitiesData.header4) {
+    } else {
+      console.log('plus hívás else');
       setMaxInputMessage(
         React.createElement(
           'h1',
@@ -150,60 +153,18 @@ export default function EditForm({ endpointKey, isLogged }) {
               name='content'
               id='contentInput'
             />
-            {actualitiesData.header2 ? <label>Bekezdés címe: </label> : null}
-            {actualitiesData.header2 ? (
-              <input
-                defaultValue={actualitiesData?.header2}
-                onChange={changeHandler}
-                name='header2'
-                id='headerInput2'
-              />
-            ) : null}
-            {actualitiesData.content2 ? <label>Bekezdés szövege: </label> : null}
-            {actualitiesData.content2 ? (
-              <textarea
-                defaultValue={actualitiesData?.content2}
-                onChange={changeHandler}
-                name='content2'
-                id='contentInput2'
-              />
-            ) : null}
-            {actualitiesData.header3 ? <label>Bekezdés címe: </label> : null}
-            {actualitiesData.header3 ? (
-              <input
-                defaultValue={actualitiesData?.header3}
-                onChange={changeHandler}
-                name='header3'
-                id='headerInput3'
-              />
-            ) : null}
-            {actualitiesData.content3 ? <label>Bekezdés szövege: </label> : null}
-            {actualitiesData.content3 ? (
-              <textarea
-                defaultValue={actualitiesData?.content3}
-                onChange={changeHandler}
-                name='content3'
-                id='contentInput3'
-              />
-            ) : null}
-            {actualitiesData.header4 ? <label>Bekezdés címe: </label> : null}
-            {actualitiesData.header4 ? (
-              <input
-                defaultValue={actualitiesData?.header4}
-                onChange={changeHandler}
-                name='header4'
-                id='headerInput4'
-              />
-            ) : null}
-            {actualitiesData.content4 ? <label>Bekezdés szövege: </label> : null}
-            {actualitiesData.content4 ? (
-              <textarea
-                defaultValue={actualitiesData?.content4}
-                onChange={changeHandler}
-                name='content4'
-                id='contentInput4'
-              />
-            ) : null}
+
+            {actualitiesData.header2 ? <label>Bekezdés címe: </label> : headerInput2}
+
+            {actualitiesData.content2 ? <label>Bekezdés szövege: </label> : inputArea2}
+
+            {actualitiesData.header3 ? <label>Bekezdés címe: </label> : headerInput3}
+
+            {actualitiesData.content3 ? <label>Bekezdés szövege: </label> : inputArea3}
+
+            {actualitiesData.header4 ? <label>Bekezdés címe: </label> : headerInput4}
+
+            {actualitiesData.content4 ? <label>Bekezdés szövege: </label> : inputArea4}
 
             {maxInputMessage ? maxInputMessage : null}
             <div className='form-button-container'>
