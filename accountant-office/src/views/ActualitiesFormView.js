@@ -69,7 +69,7 @@ export default function ActualititesFormView({
     const actualitiesDb = readData('ActualitiesDataBase')
       .then((DataSnapshot) => {
         const rawData = DataSnapshot.toJSON();
-        setDataArray(Object.entries(rawData));
+        setDataArray(Object.entries(rawData).reverse());
       })
       .then(() => {
         setTotalItems(dataArray.length);
@@ -77,7 +77,7 @@ export default function ActualititesFormView({
       .catch((e) => {
         console.log(e);
       });
-  }, [switchChecked]);
+  }, [switchChecked, formChoser]);
   useEffect(() => {
     if (toDefault) {
       setCurrentPage(1);
@@ -92,7 +92,6 @@ export default function ActualititesFormView({
     setToIndex(toIndex + itemsPerPage);
 
     setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
-    console.log('next page');
   };
 
   const previousButtonHandler = () => {
@@ -100,8 +99,7 @@ export default function ActualititesFormView({
     setfromIndex(fromIndex - itemsPerPage);
     setToIndex(toIndex - itemsPerPage);
 
-    setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
-    console.log('previous page');
+    setItemsToRender(dataArray.slice(fromIndex, toIndex));
   };
 
   const toFirstPageHandler = () => {
@@ -109,8 +107,7 @@ export default function ActualititesFormView({
     setfromIndex(0);
     setToIndex(itemsPerPage);
 
-    setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
-    console.log('to Kurva anyád page');
+    setItemsToRender(dataArray.slice(fromIndex, toIndex));
   };
 
   const toLastPageHandler = () => {
@@ -118,11 +115,11 @@ export default function ActualititesFormView({
     setfromIndex(totalItems - (totalItems % itemsPerPage));
     setToIndex(totalItems);
 
-    setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
+    setItemsToRender(dataArray.slice(fromIndex, toIndex));
   };
 
   useEffect(() => {
-    setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
+    setItemsToRender(dataArray.slice(fromIndex, toIndex));
     setToDefault(false);
   }, [dataArray, fromIndex, toIndex, setToDefault]);
 
@@ -135,7 +132,6 @@ export default function ActualititesFormView({
   };
 
   const photoChangeHandler = (e) => {
-    setUpldoadButtonDisabled(true);
     setActualitiesData({ ...actualitiesData, [e.target.name]: e.target.files[0] });
     console.log(actualitiesData);
   };
@@ -232,7 +228,7 @@ export default function ActualititesFormView({
   const submitHandler = (e) => {
     e.preventDefault();
     const actualitieDate = new Date();
-    if (auth && !uploadButtonDisabled) {
+    if (auth && actualitiesData?.header && actualitiesData?.content) {
       createNewData('ActualitiesDataBase', {
         ...actualitiesData,
         date: `${actualitieDate.getFullYear()}.${
@@ -253,6 +249,9 @@ export default function ActualititesFormView({
             backButtonHandler();
           }
         })
+        .then(() => {
+          setActualitiesData({});
+        })
         .catch((e) => {
           window.scrollTo({
             top: 0,
@@ -271,7 +270,9 @@ export default function ActualititesFormView({
         left: 0,
         behavior: 'smooth',
       });
-      setFeedBackMessage('Nem sikerült a cikk feltöltés');
+      setFeedBackMessage(
+        'Nem sikerült a cikk feltöltés! Kérjük töltsön ki minden szükséges mezőt!'
+      );
       setTimeout(() => {
         setFeedBackMessage(null);
       }, 4000);
@@ -300,9 +301,8 @@ export default function ActualititesFormView({
     setEditWindowOpen(false);
   };
   const deleteButtonHandler = (e) => {
-    console.log('eventtarget: ', e.target.name);
     setEndpointKey(e.target.name);
-    console.log('endpointkey: ', endpointKey);
+
     setDeleteWindowOpen(true);
   };
   const deleteFromDataBase = (e) => {
@@ -425,7 +425,7 @@ export default function ActualititesFormView({
                   </div>
                   <div className='form-button-container'>
                     <button
-                      disabled={uploadButtonDisabled ? 'disabled' : ''}
+                      /* disabled={uploadButtonDisabled ? 'disabled' : ''} */
                       type='submit'
                     >
                       Feltöltés
@@ -505,7 +505,13 @@ export default function ActualititesFormView({
             <div className='edit-window-closer'>
               <FontAwesomeIcon onClick={editWindowCloser} icon={faSquareXmark} />
             </div>
-            <EditForm endpointKey={endpointKey} isLogged={isLogged} />
+            <EditForm
+              editWindowCloser={editWindowCloser}
+              backButtonHandler={backButtonHandler}
+              setFeedBackMessage={setFeedBackMessage}
+              endpointKey={endpointKey}
+              isLogged={isLogged}
+            />
           </>
         )}
         {deleteWindowOpen && (

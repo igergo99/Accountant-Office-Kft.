@@ -23,7 +23,7 @@
   margin-right: 5vw;
   margin-top: 3vh;
   margin-bottom: 3vh;
-  font-size: 2vh;
+  font-size: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -40,7 +40,7 @@
   margin-right: 5vw;
   margin-top: 3vh;
   margin-bottom: 3vh;
-  font-size: 2vh;
+  font-size: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -70,7 +70,7 @@
   border: 1px solid transparent;
   background-color: rgba(33, 32, 36, 1);
   color: white;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
 }
 .accounting-box-bright button {
   width: 15vw;
@@ -80,7 +80,7 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
   color: black;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
 }
 .accounting-box-dark button:hover {
   background-color: white;
@@ -104,7 +104,7 @@
   margin-right: 5vw;
   margin-top: 3vh;
   margin-bottom: 3vh;
-  font-size: 2vh;
+  font-size: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -123,7 +123,7 @@
   margin-right: 5vw;
   margin-top: 3vh;
   margin-bottom: 3vh;
-  font-size: 2vh;
+  font-size: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -149,7 +149,7 @@
   border: 1px solid transparent;
   background-color: rgba(33, 32, 36, 1);
   color: white;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
 }
 .tax-box-bright button {
   width: 15vw;
@@ -159,7 +159,7 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
   color: black;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
 }
 .tax-box-dark button:hover {
   background-color: white;
@@ -183,7 +183,7 @@
   margin-right: 5vw;
   margin-top: 3vh;
   margin-bottom: 3vh;
-  font-size: 2vh;
+  font-size: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -202,7 +202,7 @@
   margin-right: 5vw;
   margin-top: 3vh;
   margin-bottom: 3vh;
-  font-size: 2vh;
+  font-size: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -228,7 +228,7 @@
   border: 1px solid transparent;
   background-color: rgba(33, 32, 36, 1);
   color: white;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
 }
 .salary-box-bright button {
   width: 15vw;
@@ -238,7 +238,7 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
   color: black;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
 }
 .salary-box-dark button:hover {
   background-color: white;
@@ -262,7 +262,7 @@
   margin-right: 5vw;
   margin-top: 3vh;
   margin-bottom: 3vh;
-  font-size: 2vh;
+  font-size: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -281,7 +281,7 @@
   margin-right: 5vw;
   margin-top: 3vh;
   margin-bottom: 3vh;
-  font-size: 2vh;
+  font-size: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -307,7 +307,7 @@
   border: 1px solid transparent;
   background-color: rgba(33, 32, 36, 1);
   color: white;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
 }
 .annual-report-box-bright button {
   width: 15vw;
@@ -317,7 +317,7 @@
   background-color: white;
   box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
   color: black;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
 }
 .annual-report-box-dark button:hover {
   background-color: white;
@@ -341,7 +341,7 @@
   margin-right: 5vw;
   margin-top: 3vh;
   margin-bottom: 3vh;
-  font-size: 2vh;
+  font-size: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -360,7 +360,7 @@
   margin-right: 5vw;
   margin-top: 3vh;
   margin-bottom: 3vh;
-  font-size: 2vh;
+  font-size: 3vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -386,7 +386,7 @@
   border: 1px solid transparent;
   background-color: rgba(33, 32, 36, 1);
   color: white;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
 }
 .web-developement-box-bright button {
   width: 15vw;
@@ -396,7 +396,7 @@
   box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
   background-color: white;
   color: black;
-  font-size: 2.5vh;
+  font-size: 3.5vh;
 }
 .web-developement-box-dark button:hover {
   background-color: white;
@@ -850,7 +850,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70vw;
+    width: 60vw;
   }
   .accounting-box-bright {
     animation: service-box-move 1s forwards;
@@ -867,7 +867,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70vw;
+    width: 60vw;
   }
   .accounting-box-dark h1 {
     margin: 0 0 2vh 0;
@@ -887,23 +887,23 @@
     justify-content: center;
   }
   .accounting-box-dark button {
-    width: 20vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 10px;
     border: 1px solid transparent;
     background-color: rgba(33, 32, 36, 1);
     color: white;
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
   .accounting-box-bright button {
-    width: 20vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 10px;
     border: 1px solid transparent;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
     color: black;
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
   .accounting-box-dark button:hover {
     background-color: white;
@@ -931,7 +931,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70vw;
+    width: 60vw;
   }
   .tax-box-bright {
     animation: service-box-move 1s forwards;
@@ -950,7 +950,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70vw;
+    width: 60vw;
   }
   .tax-box-dark h1 {
     margin: 0 0 2vh 0;
@@ -966,23 +966,23 @@
   }
 
   .tax-box-dark button {
-    width: 20vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 10px;
     border: 1px solid transparent;
     background-color: rgba(33, 32, 36, 1);
     color: white;
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
   .tax-box-bright button {
-    width: 20vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 10px;
     border: 1px solid transparent;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
     color: black;
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
   .tax-box-dark button:hover {
     background-color: white;
@@ -1010,7 +1010,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70vw;
+    width: 60vw;
   }
   .salary-box-bright {
     animation: service-box-move 1s forwards;
@@ -1029,7 +1029,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70vw;
+    width: 60vw;
   }
   .salary-box-dark h1 {
     margin: 0 0 2vh 0;
@@ -1045,23 +1045,23 @@
   }
 
   .salary-box-dark button {
-    width: 20vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 10px;
     border: 1px solid transparent;
     background-color: rgba(33, 32, 36, 1);
     color: white;
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
   .salary-box-bright button {
-    width: 20vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 10px;
     border: 1px solid transparent;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
     color: black;
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
   .salary-box-dark button:hover {
     background-color: white;
@@ -1089,7 +1089,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70vw;
+    width: 60vw;
   }
   .annual-report-box-bright {
     animation: service-box-move 1s forwards;
@@ -1108,7 +1108,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70vw;
+    width: 60vw;
   }
   .annual-report-box-dark h1 {
     margin: 0 0 2vh 0;
@@ -1124,23 +1124,23 @@
   }
 
   .annual-report-box-dark button {
-    width: 20vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 10px;
     border: 1px solid transparent;
     background-color: rgba(33, 32, 36, 1);
     color: white;
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
   .annual-report-box-bright button {
-    width: 20vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 10px;
     border: 1px solid transparent;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
     color: black;
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
   .annual-report-box-dark button:hover {
     background-color: white;
@@ -1168,7 +1168,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70vw;
+    width: 60vw;
   }
   .web-developement-box-bright {
     animation: service-box-move 1s forwards;
@@ -1187,7 +1187,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 70vw;
+    width: 60vw;
   }
   .web-developement-box-dark h1 {
     margin: 0 0 2vh 0;
@@ -1203,23 +1203,23 @@
   }
 
   .web-developement-box-dark button {
-    width: 20vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 10px;
     border: 1px solid transparent;
     background-color: rgba(33, 32, 36, 1);
     color: white;
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
   .web-developement-box-bright button {
-    width: 20vw;
+    width: 25vw;
     height: 5vh;
     border-radius: 10px;
     border: 1px solid transparent;
     box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
     background-color: white;
     color: black;
-    font-size: 2vh;
+    font-size: 2.5vh;
   }
   .web-developement-box-dark button:hover {
     background-color: white;

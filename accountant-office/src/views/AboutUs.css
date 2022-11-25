@@ -81,7 +81,7 @@
   margin: 0.7vh;
 }
 .ceo-content-dark {
-  font-size: 2.25vh;
+  font-size: 3vh;
   border-radius: 15px;
   padding: 2vh;
   animation: move-animation-content1 2s forwards;
@@ -93,7 +93,7 @@
   width: 36vw;
 }
 .ceo-content-bright {
-  font-size: 2.25vh;
+  font-size: 3vh;
   border-radius: 15px;
   padding: 2vh;
   animation: move-animation-content1 2s forwards;
@@ -176,7 +176,7 @@
 }
 .team-content-dark {
   opacity: 0;
-  font-size: 2.25vh;
+  font-size: 3vh;
   border-radius: 15px;
   padding: 2vh;
   animation: move-animation-head2 2s forwards;
@@ -188,7 +188,7 @@
 }
 .team-content-bright {
   opacity: 0;
-  font-size: 2.25vh;
+  font-size: 3vh;
   border-radius: 15px;
   padding: 2vh;
   animation: move-animation-head2 2s forwards;
@@ -385,7 +385,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 70vw;
+    width: 50vw;
   }
   .ceo-img-header-bright {
     border-radius: 15px;
@@ -416,7 +416,7 @@
   }
   .ceo-content-dark {
     margin-top: 2vh;
-    font-size: 2.25vh;
+    font-size: 2.5vh;
     border-radius: 15px;
     padding: 2vw;
     animation: move-animation-content1 2s forwards;
@@ -429,7 +429,7 @@
   }
   .ceo-content-bright {
     margin-top: 2vh;
-    font-size: 2.25vh;
+    font-size: 2.5vh;
     border-radius: 15px;
     padding: 2vw;
     animation: move-animation-content1 2s forwards;
@@ -513,7 +513,7 @@
   .team-content-dark {
     margin-top: 2vh;
     opacity: 0;
-    font-size: 2.25vh;
+    font-size: 2.5vh;
     border-radius: 15px;
     padding: 2vw;
     animation: move-animation-head2 2s forwards;
@@ -526,7 +526,7 @@
   .team-content-bright {
     margin-top: 2vh;
     opacity: 0;
-    font-size: 2.25vh;
+    font-size: 2.5vh;
     border-radius: 15px;
     padding: 2vw;
     animation: move-animation-head2 2s forwards;

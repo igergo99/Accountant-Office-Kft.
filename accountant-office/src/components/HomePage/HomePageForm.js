@@ -139,6 +139,7 @@ export default function HomePageForm({ switchChecked }) {
               placeholder='Cégnév'
             />
             <input
+              type='number'
               value={contactInfo.taxNumber}
               name='taxNumber'
               onChange={contactChangeHandler}
@@ -160,10 +161,12 @@ export default function HomePageForm({ switchChecked }) {
               name='messageType'
               onChange={contactChangeHandler}
             >
+              <option>Válasszon az alábbi listából:</option>
               <option>Cégalapítás</option>
               <option>Könyvelés</option>
               <option>Adóbevallás</option>
               <option>Üzleti tanácsadás</option>
+              <option>Web-fejlesztés</option>
             </select>
           </div>
 

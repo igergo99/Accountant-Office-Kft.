@@ -1,11 +1,17 @@
 import React from 'react';
 import './AboutUs.css';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 export default function AboutUsView({
   setOfferButtonOn,
   setServicesButtonOn,
+  setSwitchChecked,
   switchChecked,
 }) {
+  const [renderDate, setRenderDate] = useState(new Date().getHours());
+  if (renderDate >= 19) {
+    setSwitchChecked(false);
+  }
   window.scrollTo({
     top: 0,
     left: 0,

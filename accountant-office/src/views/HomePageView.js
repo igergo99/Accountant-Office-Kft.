@@ -8,9 +8,19 @@ import {
   faScaleBalanced,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-export default function HomePageView({ offerButtonOn, setOfferButtonOn, switchChecked }) {
+export default function HomePageView({
+  offerButtonOn,
+  setOfferButtonOn,
+  setSwitchChecked,
+  switchChecked,
+}) {
+  const [renderDate, setRenderDate] = useState(new Date().getHours());
   useLayoutEffect(() => {}, []);
-  useEffect(() => {}, [switchChecked]);
+  useEffect(() => {
+    if (renderDate >= 19) {
+      setSwitchChecked(false);
+    }
+  }, []);
   useEffect(() => {
     if (offerButtonOn) {
       window.scrollTo({

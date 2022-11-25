@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Services.css';
 
 import { NavLink } from 'react-router-dom';
 
-export default function AccountingPageView({ setOfferButtonOn, switchChecked }) {
+export default function AccountingPageView({
+  setSwitchChecked,
+  setOfferButtonOn,
+  switchChecked,
+}) {
+  const [renderDate, setRenderDate] = useState(new Date().getHours());
+  if (renderDate >= 19) {
+    setSwitchChecked(false);
+  }
   window.scrollTo({
     top: 0,
     left: 0,

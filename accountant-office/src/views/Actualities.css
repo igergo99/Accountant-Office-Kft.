@@ -179,7 +179,7 @@
   justify-content: space-between;
 }
 .article-open-container-dark {
-  font-size: 2vh;
+  font-size: 3vh;
   /* border: 1px solid transparent; */
   border-radius: 15px;
   max-height: 80vh;
@@ -197,7 +197,7 @@
   width: 70vw;
 }
 .article-open-container-bright {
-  font-size: 2vh;
+  font-size: 3vh;
   /* border: 1px solid transparent; */
   border-radius: 15px;
   max-height: 80vh;

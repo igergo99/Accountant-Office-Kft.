@@ -20,12 +20,16 @@ function App() {
   const [servicesButtonOn, setServicesButtonOn] = useState(false);
   const [switchChecked, setSwitchChecked] = useState(true);
   const [dataArray, setDataArray] = useState([]);
+  const [renderDate, setRenderDate] = useState(new Date().getHours());
   useEffect(() => {
+    if (renderDate >= 19) {
+      setSwitchChecked(false);
+    }
     const liveChange = liveValue('ActualitiesDataBase', (snapshot) => {
       setDataArray(Object.entries(snapshot.val()));
     });
     return () => liveChange();
-  }, []);
+  }, [renderDate]);
 
   return (
     <div className='App'>
@@ -44,6 +48,7 @@ function App() {
             path='/'
             element={
               <HomePageView
+                setSwitchChecked={setSwitchChecked}
                 offerButtonOn={offerButtonOn}
                 setOfferButtonOn={setOfferButtonOn}
                 switchChecked={switchChecked}
@@ -54,6 +59,7 @@ function App() {
             path='/aboutus'
             element={
               <AboutUsView
+                setSwitchChecked={setSwitchChecked}
                 switchChecked={switchChecked}
                 offerButtonOn={offerButtonOn}
                 setOfferButtonOn={setOfferButtonOn}
@@ -66,6 +72,7 @@ function App() {
             path='/services'
             element={
               <AccountingPageView
+                setSwitchChecked={setSwitchChecked}
                 setOfferButtonOn={setOfferButtonOn}
                 switchChecked={switchChecked}
               />
@@ -76,6 +83,7 @@ function App() {
             path='/actualities'
             element={
               <ActualitiesView
+                setSwitchChecked={setSwitchChecked}
                 actualitiesArray={dataArray}
                 switchChecked={switchChecked}
                 perPage={8}
@@ -85,7 +93,12 @@ function App() {
           />
           <Route
             path='/references'
-            element={<ReferencesView switchChecked={switchChecked} />}
+            element={
+              <ReferencesView
+                setSwitchChecked={setSwitchChecked}
+                switchChecked={switchChecked}
+              />
+            }
           />
 
           <Route

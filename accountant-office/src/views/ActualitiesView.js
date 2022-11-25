@@ -16,7 +16,12 @@ export default function ActualitiesView({
   toDefault,
   setToDefault,
   switchChecked,
+  setSwitchChecked,
 }) {
+  const [renderDate, setRenderDate] = useState(new Date().getHours());
+  if (renderDate >= 19) {
+    setSwitchChecked(false);
+  }
   window.scrollTo({
     top: 0,
     left: 0,
@@ -39,7 +44,7 @@ export default function ActualitiesView({
     const actualitiesDb = readData('ActualitiesDataBase')
       .then((DataSnapshot) => {
         const rawData = DataSnapshot.toJSON();
-        setDataArray(Object.entries(rawData));
+        setDataArray(Object.entries(rawData).reverse());
       })
       .catch((e) => {
         console.log(e);
@@ -63,7 +68,7 @@ export default function ActualitiesView({
     setfromIndex(fromIndex + itemsPerPage);
     setToIndex(toIndex + itemsPerPage);
 
-    setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
+    setItemsToRender(dataArray.slice(fromIndex, toIndex));
     console.log('next page');
   };
 
@@ -77,7 +82,7 @@ export default function ActualitiesView({
     setfromIndex(fromIndex - itemsPerPage);
     setToIndex(toIndex - itemsPerPage);
 
-    setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
+    setItemsToRender(dataArray.slice(fromIndex, toIndex));
     console.log('previous page');
   };
 
@@ -91,7 +96,7 @@ export default function ActualitiesView({
     setfromIndex(0);
     setToIndex(itemsPerPage);
 
-    setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
+    setItemsToRender(dataArray.slice(fromIndex, toIndex));
     console.log('to first page');
   };
 
@@ -101,7 +106,7 @@ export default function ActualitiesView({
 
     setToIndex(totalItems);
 
-    setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
+    setItemsToRender(dataArray.slice(fromIndex, toIndex));
     console.log('to last page');
     window.scrollTo({
       top: 0,
@@ -110,7 +115,7 @@ export default function ActualitiesView({
     });
   };
   useEffect(() => {
-    setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
+    setItemsToRender(dataArray.slice(fromIndex, toIndex));
     setToDefault(false);
   }, [dataArray, fromIndex, toIndex, setToDefault]);
 

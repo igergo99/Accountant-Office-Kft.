@@ -5,7 +5,13 @@ import { storage, auth } from '../../config/firebase';
 import { updateData } from '../../services/crud';
 import { DataSnapshot, set } from '@firebase/database';
 
-export default function EditForm({ endpointKey, isLogged }) {
+export default function EditForm({
+  backButtonHandler,
+  setFeedBackMessage,
+  editWindowCloser,
+  endpointKey,
+  isLogged,
+}) {
   const [inputArea2, setInputArea2] = useState(null);
   const [inputArea3, setInputArea3] = useState(null);
   const [inputArea4, setInputArea4] = useState(null);
@@ -49,12 +55,10 @@ export default function EditForm({ endpointKey, isLogged }) {
   };
 
   const plusClickHandler = (e) => {
-    console.log('plus hívás');
     if (!headerInput2) {
-      console.log('plus hívás if1');
       setHeaderInput2(
         React.createElement('input', {
-          defaultValue: 'Első bekezdés címe:',
+          placeholder: 'Első bekezdés címe:',
 
           name: 'header2',
           onChange: changeHandler,
@@ -62,46 +66,43 @@ export default function EditForm({ endpointKey, isLogged }) {
       );
       setInputArea2(
         React.createElement('textarea', {
-          defaultValue: 'Első bekezdés szövege:',
+          placeholder: 'Első bekezdés szövege:',
 
           name: `content2`,
           onChange: changeHandler,
         })
       );
     } else if (headerInput2 && !headerInput3) {
-      console.log('plus hívás if2');
       setInputArea3(
         React.createElement('textarea', {
-          defaultValue: 'Második bekezdés szövege:',
+          placeholder: 'Második bekezdés szövege:',
           name: `content3`,
           onChange: changeHandler,
         })
       );
       setHeaderInput3(
         React.createElement('input', {
-          defaultValue: 'Harmadik bekezdés címe:',
+          placeholder: 'Harmadik bekezdés címe:',
           name: 'header3',
           onChange: changeHandler,
         })
       );
     } else if (headerInput3 && !headerInput4) {
-      console.log('plus hívás if3');
       setInputArea4(
         React.createElement('textarea', {
-          defaultValue: 'Harmadik bekezdés szövege:',
+          placeholder: 'Harmadik bekezdés szövege:',
           name: `content4`,
           onChange: changeHandler,
         })
       );
       setHeaderInput4(
         React.createElement('input', {
-          defaultValue: 'Harmadik bekezdés címe:',
+          placeholder: 'Harmadik bekezdés címe:',
           name: 'header4',
           onChange: changeHandler,
         })
       );
     } else {
-      console.log('plus hívás else');
       setMaxInputMessage(
         React.createElement(
           'h1',
@@ -121,6 +122,14 @@ export default function EditForm({ endpointKey, isLogged }) {
       updateData(`ActualitiesDataBase`, endpointKey, actualitiesData)
         .then(() => {
           console.log(actualitiesData);
+        })
+        .then(() => {
+          editWindowCloser();
+          setFeedBackMessage('Sikeres módosítás!');
+          backButtonHandler();
+          setTimeout(() => {
+            setFeedBackMessage(null);
+          }, 4000);
         })
         .catch((e) => {
           console.log(e);
@@ -154,17 +163,17 @@ export default function EditForm({ endpointKey, isLogged }) {
               id='contentInput'
             />
 
-            {actualitiesData.header2 ? <label>Bekezdés címe: </label> : headerInput2}
+            {headerInput2}
 
-            {actualitiesData.content2 ? <label>Bekezdés szövege: </label> : inputArea2}
+            {inputArea2}
 
-            {actualitiesData.header3 ? <label>Bekezdés címe: </label> : headerInput3}
+            {headerInput3}
 
-            {actualitiesData.content3 ? <label>Bekezdés szövege: </label> : inputArea3}
+            {inputArea3}
 
-            {actualitiesData.header4 ? <label>Bekezdés címe: </label> : headerInput4}
+            {headerInput4}
 
-            {actualitiesData.content4 ? <label>Bekezdés szövege: </label> : inputArea4}
+            {inputArea4}
 
             {maxInputMessage ? maxInputMessage : null}
             <div className='form-button-container'>

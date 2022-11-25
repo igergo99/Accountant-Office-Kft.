@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import './References.css';
-export default function ReferencesView({ switchChecked }) {
+export default function ReferencesView({ switchChecked, setSwitchChecked }) {
+  const [renderDate, setRenderDate] = useState(new Date().getHours());
+  if (renderDate >= 19) {
+    setSwitchChecked(false);
+  }
   window.scrollTo({
     top: 0,
     left: 0,
