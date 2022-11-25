@@ -58,7 +58,8 @@ export default function Footer({ isLogged, setIsLogged }) {
             <h1>Kapcsolat</h1>
             <span>Iglódi Zoltán</span>
             <span>ziglodi@gmail.com</span>
-            <span>+36301012412</span>
+            <span>+36303769815</span>
+            <span>+36203863197</span>
             <h1>Cím</h1>
             <span>5435 Martfű,</span>
             <span>Gesztenye sor 1.</span>
