@@ -40,7 +40,11 @@ export default function Header({ switchChecked, setSwitchChecked }) {
         <ul className='header-logo-container'>
           <li>
             <NavLink to='/'>
-              <FontAwesomeIcon className='header-logo' icon={faVihara} />
+              {/* <F6ontAwesomeIcon className='header-logo' icon={faVihara} /> */}
+              <div className='header-logo'>
+                <img src='logo192.png' />
+              </div>
+
               <h1 className='header-name'>Accountant Office Kft.</h1>
             </NavLink>
           </li>
