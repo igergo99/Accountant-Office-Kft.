@@ -11,6 +11,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 export default function ActualitiesView({
+  actualitiesArray,
   perPage,
   toDefault,
   setToDefault,
@@ -22,6 +23,7 @@ export default function ActualitiesView({
     behavior: 'smooth',
   });
   const itemsPerPage = perPage;
+
   const [currentPage, setCurrentPage] = useState(1);
   const [fromIndex, setfromIndex] = useState(0);
   const [toIndex, setToIndex] = useState(itemsPerPage);
@@ -32,6 +34,8 @@ export default function ActualitiesView({
   const [articleOpen, setArticleOpen] = useState(false);
 
   useEffect(() => {
+    /* setDataArray(actualitiesArray); */
+
     const actualitiesDb = readData('ActualitiesDataBase')
       .then((DataSnapshot) => {
         const rawData = DataSnapshot.toJSON();
@@ -105,7 +109,6 @@ export default function ActualitiesView({
       behavior: 'smooth',
     });
   };
-
   useEffect(() => {
     setItemsToRender(dataArray.reverse().slice(fromIndex, toIndex));
     setToDefault(false);

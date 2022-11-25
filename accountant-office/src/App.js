@@ -13,12 +13,20 @@ import AboutUsView from './views/AboutUsView';
 
 import AccountingPageView from './views/ServicesPages/AccountingPageView';
 import React, { useEffect, useState } from 'react';
-
+import { liveValue } from './services/crud';
 function App() {
   const [isLogged, setIsLogged] = useState(false);
   const [offerButtonOn, setOfferButtonOn] = useState(false);
   const [servicesButtonOn, setServicesButtonOn] = useState(false);
   const [switchChecked, setSwitchChecked] = useState(true);
+  const [dataArray, setDataArray] = useState([]);
+  useEffect(() => {
+    const liveChange = liveValue('ActualitiesDataBase', (snapshot) => {
+      setDataArray(Object.entries(snapshot.val()));
+    });
+    return () => liveChange();
+  }, []);
+
   return (
     <div className='App'>
       <Routes>
@@ -68,6 +76,7 @@ function App() {
             path='/actualities'
             element={
               <ActualitiesView
+                actualitiesArray={dataArray}
                 switchChecked={switchChecked}
                 perPage={8}
                 setToDefault={() => {}}
@@ -93,6 +102,7 @@ function App() {
             path='/actualitiesForm'
             element={
               <ActualitiesFormView
+                actualitiesArray={dataArray}
                 switchChecked={switchChecked}
                 setIsLogged={setIsLogged}
                 isLogged={isLogged}

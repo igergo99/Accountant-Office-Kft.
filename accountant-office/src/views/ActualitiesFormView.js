@@ -6,6 +6,7 @@ import { createNewData, deleteData, readData } from '../services/crud';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import './ActualitiesForm.css';
 import { signOut } from '@firebase/auth';
+import NotFound from '../components/NotFound/NotFound';
 import {
   faFileCirclePlus,
   faFilePen,
@@ -21,6 +22,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import EditForm from '../components/EditForm/EditForm';
 
 export default function ActualititesFormView({
+  actualitiesArray,
   isLogged,
   perPage,
   toDefault,
@@ -63,6 +65,7 @@ export default function ActualititesFormView({
     });
   }, []);
   useEffect(() => {
+    /* setDataArray(actualitiesArray); */
     const actualitiesDb = readData('ActualitiesDataBase')
       .then((DataSnapshot) => {
         const rawData = DataSnapshot.toJSON();
@@ -443,7 +446,7 @@ export default function ActualititesFormView({
               <div className='actualities-card-container'>
                 {itemsToRender.map((actualitiesObj, index) => {
                   return (
-                    <div className='card-with-buttons'>
+                    <div key={index} className='card-with-buttons'>
                       <ActualitiesCard actualitiesObj={actualitiesObj} key={index} />
                       <div className='delete-edit-button-container'>
                         <button onClick={editButtonHandler} name={actualitiesObj[0]}>
@@ -525,11 +528,8 @@ export default function ActualititesFormView({
     );
   } else {
     return (
-      <div>
-        <h1>
-          HAHAHAHA! Megpróbáltad feltörni a könyvelő oldalát. Ez nem jött össze, rendőrség
-          értesítve. Pá!
-        </h1>
+      <div className='not-found-container'>
+        <NotFound />
       </div>
     );
   }
