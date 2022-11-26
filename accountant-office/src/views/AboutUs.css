@@ -73,7 +73,11 @@
   width: 15vw;
   box-shadow: rgba(0, 0, 0, 1) 0px 5px 15px;
 }
-.ceo-img-header img {
+.ceo-img-header-bright img {
+  border-radius: 10px;
+  width: 10vw;
+}
+.ceo-img-header-dark img {
   border-radius: 10px;
   width: 10vw;
 }

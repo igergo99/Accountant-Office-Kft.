@@ -38,7 +38,7 @@ export default function AboutUsView({
           <div
             className={switchChecked ? 'ceo-img-header-bright' : 'ceo-img-header-dark'}
           >
-            <img src='https://placekitten.com/200/270' />
+            <img src='https://cdn.szmsz.press/wp-content/uploads/2018/12/kecske.jpg' />
             <h2>Iglódi Zoltán</h2>
             <h2>Ügyvezető-igazgató</h2>
           </div>
