@@ -21,14 +21,14 @@ export default function AccountingPageView({
     <>
       <div className='accounting-container'>
         <div className={switchChecked ? 'accounting-box-bright' : 'accounting-box-dark'}>
-          <h1>Könyvelés</h1>
+          <h1>Komplett számviteli szolgáltatás</h1>
           <span>
-            Lórum ipse egy gyönyökő retlőség a túl kevés és a túl sok között. Rond tányos
-            fásos pornímágot fekülő, a fekülő által közvetlenül fátlan ködésök ángása után
-            ciánghat. Ehhez fekülőnek természetesen csilnie kell az égszerítő kulldort is.
-            Rond rond a kölyökök és pornímágok a fita nem viszmoskodják. Az égszerítő
-            vostához való üléshöz, ámor magmuskájában, vagy mokánán bódik egy ságó
-            kegyeletést.
+            Ügyfeleink számára komplett számviteli szolgáltatást nyújtunk, mely
+            tartalmazza az egyéni és társas vállalkozások részére a teljeskörű főkönyvi és
+            analitikus nyilvántartások naprakész vezetését. Tevékenységfüggő bevallásainak
+            határidőre való elkészítését és beküldését. Ügyfeleink igényeinek megfelelően
+            adatszolgáltatás részükre, éves beszámolóinak összeállítása, illetve szükség
+            esetén könyvvizsgálóval való együttműködés.
           </span>
           <div className='button-container'>
             <NavLink to='/'>
@@ -37,14 +37,14 @@ export default function AccountingPageView({
           </div>
         </div>
         <div className={switchChecked ? 'tax-box-bright' : 'tax-box-dark'}>
-          <h1>Adótanácsadás</h1>
+          <h1>Bérszámfejtés</h1>
           <span>
-            Lórum ipse egy gyönyökő retlőség a túl kevés és a túl sok között. Rond tányos
-            fásos pornímágot fekülő, a fekülő által közvetlenül fátlan ködésök ángása után
-            ciánghat. Ehhez fekülőnek természetesen csilnie kell az égszerítő kulldort is.
-            Rond rond a kölyökök és pornímágok a fita nem viszmoskodják. Az égszerítő
-            vostához való üléshöz, ámor magmuskájában, vagy mokánán bódik egy ságó
-            kegyeletést.
+            Bérszámfejtési szolgáltatást is végzünk partnereink számára, amely a
+            teljeskörű havi és hóközi bérszámfejtés elkészítését, munkavállalók be - és
+            kijelentését jelenti. Ehhez kapcsolódóan a járulékbevallás határidőre való
+            elkészítése és beküldése. Ide tartozik még a különböző munkaügyi feladatok
+            ellátása és szükség szerint KSH adatszolgáltatás. Ezen kívül igény szerint
+            éves SZJA bevallások elkészítése és benyújtása.
           </span>
           <div className='button-container'>
             <NavLink to='/'>
@@ -53,14 +53,11 @@ export default function AccountingPageView({
           </div>
         </div>
         <div className={switchChecked ? 'salary-box-bright' : 'salary-box-dark'}>
-          <h1>Bérszámfejtés</h1>
+          <h1>Cégalapítás/Vállalkozás indítás</h1>
           <span>
-            Lórum ipse egy gyönyökő retlőség a túl kevés és a túl sok között. Rond tányos
-            fásos pornímágot fekülő, a fekülő által közvetlenül fátlan ködésök ángása után
-            ciánghat. Ehhez fekülőnek természetesen csilnie kell az égszerítő kulldort is.
-            Rond rond a kölyökök és pornímágok a fita nem viszmoskodják. Az égszerítő
-            vostához való üléshöz, ámor magmuskájában, vagy mokánán bódik egy ságó
-            kegyeletést.
+            Leendő partnereink részére elvégezzük az induló vállalkozásaikhoz szükséges
+            kötelező bejelentéseket és adatszolgáltatásokat. Ez mellett több éve meglévő
+            jogi kapcsolataink révén segítünk a cégalapításban.
           </span>
           <div className='button-container'>
             <NavLink to='/'>
@@ -73,7 +70,27 @@ export default function AccountingPageView({
             switchChecked ? 'annual-report-box-bright' : 'annual-report-box-dark'
           }
         >
-          <h1>Éves beszámoló</h1>
+          <h1>Üzletviteli tanácsadás</h1>
+
+          <span>
+            Több éves tapasztalataink alapján a gazdasági környezetet, az adózási
+            formákat, és a tevékenység jellegét figyelembe véve segítünk kiválasztani a
+            megfelelő vállalkozási formát. Felmérjük a tevékenység gazdasági kockázatait
+            és rávilágítunk a lehetséges nehézségekre. Javaslatot teszünk a jelenlegi és
+            leendő partnereink részére a számukra legoptimálisabb adózási módra.
+          </span>
+          <div className='button-container'>
+            <NavLink to='/'>
+              <button onClick={setOfferButtonOn}>Árajánlat</button>
+            </NavLink>
+          </div>
+        </div>
+        {/* <div
+          className={
+            switchChecked ? 'annual-report-box-bright' : 'annual-report-box-dark'
+          }
+        >
+          <h1>Bevallás készítés</h1>
           <span>
             Lórum ipse egy gyönyökő retlőség a túl kevés és a túl sok között. Rond tányos
             fásos pornímágot fekülő, a fekülő által közvetlenül fátlan ködésök ángása után
@@ -87,7 +104,7 @@ export default function AccountingPageView({
               <button onClick={setOfferButtonOn}>Árajánlat</button>
             </NavLink>
           </div>
-        </div>
+        </div>*/}
         <div
           className={
             switchChecked ? 'web-developement-box-bright' : 'web-developement-box-dark'

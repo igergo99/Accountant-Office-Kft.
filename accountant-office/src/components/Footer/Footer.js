@@ -35,10 +35,7 @@ export default function Footer({ isLogged, setIsLogged }) {
         <div className='footer-flex-container'>
           <div className='company-intro'>
             <h1>Accountant Office Kft.</h1>
-            <span>
-              Teljeskörű gazdasági szolgáltatások, bérszámfejtés, adótanácsadás,
-              könyvelési problémák megoldása
-            </span>
+            <span>Szlogen helye</span>
             <div className='footer-icon-container'>
               <FontAwesomeIcon
                 onClick={navigateAdmin}
@@ -57,8 +54,8 @@ export default function Footer({ isLogged, setIsLogged }) {
           <div className='contact-container'>
             <h1>Kapcsolat</h1>
             <span>Iglódi Zoltán</span>
-            <span>ziglodi@gmail.com</span>
-            <span>+36303769815</span>
+            <span>info@accountant-office.hu</span>
+
             <span>+36203863197</span>
             <h1>Cím</h1>
             <span>5435 Martfű,</span>

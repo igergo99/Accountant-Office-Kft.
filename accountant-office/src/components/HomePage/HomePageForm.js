@@ -162,11 +162,13 @@ export default function HomePageForm({ switchChecked }) {
               onChange={contactChangeHandler}
             >
               <option>Válasszon az alábbi listából:</option>
-              <option>Cégalapítás</option>
+              <option>Cégalapítás/Vállalkozás indítás</option>
               <option>Könyvelés</option>
+              <option>Bérszámfejtés</option>
               <option>Adóbevallás</option>
-              <option>Üzleti tanácsadás</option>
+
               <option>Web-fejlesztés</option>
+              <option>Üzletviteli tanácsadás</option>
             </select>
           </div>
 
@@ -175,7 +177,7 @@ export default function HomePageForm({ switchChecked }) {
             value={contactInfo.message}
             name='message'
             onChange={contactChangeHandler}
-            placeholder='Üzenet'
+            placeholder='Cég főbb jellemzői:'
           />
           <div className='offer-button-div'>
             <button>Árajánlat kérés</button>

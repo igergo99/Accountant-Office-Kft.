@@ -6,6 +6,10 @@ import {
   faPepperHot,
   faPersonDigging,
   faScaleBalanced,
+  faPiggyBank,
+  faPeopleArrows,
+  faCalculator,
+  faCheckDouble,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 export default function HomePageView({
@@ -56,27 +60,27 @@ export default function HomePageView({
             className={switchChecked ? 'homepage-card1-bright' : 'homepage-card1-dark'}
           >
             <div className='homepage-article-even'>
-              <h1>Adótanácsadás kis és középvállalkozásoknak</h1>
+              <h1>Számviteli szolgáltatás mikro, kis - és középvállalkozásoknak</h1>
               <span>
-                Lórum ipse egy gyönyökő retlőség a túl kevés és a túl sok között. Rond
-                tányos fásos pornímágot fekülő, a fekülő által közvetlenül fátlan ködésök
-                ángása után ciánghat. Ehhez fekülőnek természetesen csilnie kell az
-                égszerítő kulldort is. Rond rond a kölyökök és pornímágok a fita nem
-                viszmoskodják.
+                ● Egyéni és társas vállalkozása részére főkönyvi és analitikus
+                nyilvántartások naprakész vezetése ● bevallásainak határidőre való
+                elkészítése ● éves beszámolók összeállítása ● szükség esetén
+                könyvvizsgálóval való együttműködés
               </span>
             </div>
-            <FontAwesomeIcon className='homepage-icons' icon={faSchoolFlag} />
+            <FontAwesomeIcon className='homepage-icons' icon={faScaleBalanced} />
           </div>
           <div
             className={switchChecked ? 'homepage-card2-bright' : 'homepage-card2-dark'}
           >
-            <FontAwesomeIcon className='homepage-icons' icon={faPepperHot} />
+            <FontAwesomeIcon className='homepage-icons' icon={faPiggyBank} />
             <div className='homepage-article-odd'>
-              <h1>Bérszámfejtés, SZJA bevallás</h1>
+              <h1>Bérszámfejtés</h1>
               <span>
-                Az égszerítő vostához való üléshöz, ámor magmuskájában, vagy mokánán bódik
-                egy ságó kegyeletést. Kérem, a hetes jedezésre kattintva mezje ki a nyertő
-                vozást.
+                ● Teljeskörű havi és hóközi bérszámfejtés elkészítése ● munkavállalók be -
+                és kijelentése ● járulékbevallás határidőre való elkészítése ● éves SZJA
+                bevallások benyújtása ● munkaügyi feladatok ellátása ● KSH
+                adatszolgáltatás
               </span>
             </div>
           </div>
@@ -84,29 +88,38 @@ export default function HomePageView({
             className={switchChecked ? 'homepage-card3-bright' : 'homepage-card3-dark'}
           >
             <div className='homepage-article-even'>
-              <h1>Gyakorlatias rendelkezésre állás, könyvelési problémáktól mentesen</h1>
+              <h1>Vállalkozás indítás, üzletviteli tanácsadás</h1>
               <span>
-                Egy részletesen ezes óság allűrt csöztezhetik, amely a sóhajtól egészen a
-                ködésök üdvölő prékájáig számcsol. Fekülő a tatott online jelenségen
-                csábátos és potenciálisan igen tapos vostájának gondja lesz.
+                Segítünk vállalkozásának elindításában ● felmérjük vállalkozása
+                életképességét ● a megfelelő vállalkozási formára javaslatot teszünk ●
+                különböző gazdasági problémáira megoldást kínálunk
               </span>
             </div>
-            <FontAwesomeIcon className='homepage-icons' icon={faPersonDigging} />
+            <FontAwesomeIcon className='homepage-icons' icon={faCalculator} />
           </div>
           <div
             className={switchChecked ? 'homepage-card4-bright' : 'homepage-card4-dark'}
           >
-            <FontAwesomeIcon className='homepage-icons' icon={faScaleBalanced} />
+            <FontAwesomeIcon className='homepage-icons' icon={faPeopleArrows} />
             <div className='homepage-article-odd'>
-              <h1>Tudjuk, hogy nagy eséllyel segíthetünk</h1>
+              <h1>Rugalmas rendelkezésre állás</h1>
               <span>
-                Elsősorban azt sedik a szerjesztő dajtélynak a nökétökkel forzós pacsaton
-                pató pisztek, hogy a félett esztönbök vildás szapéinak legesízlénére bizgó
-                szövezések nem koznak semmit, sőt úgy bogdajol, mintha az ágyém gömölőit
-                pufoznák. Pedig a félett kömketlet részéről irtyás művényöt szapéval
-                szerémezhetnék el a vildás szapéikban felő pisztek.
+                ● Gazdasági ● munkaügyi ● adózási jellegű problémáinak megoldása
               </span>
             </div>
+          </div>
+          <div
+            className={switchChecked ? 'homepage-card3-bright' : 'homepage-card3-dark'}
+          >
+            <div className='homepage-article-even'>
+              <h1>Tapasztalat</h1>
+              <span>
+                ● Több, mint 25 éves tapasztalattal rendelkezünk ● széleskörű szakmai
+                ismeretek ● törvényi változások folyamatos nyomon követése ●
+                továbbképzéseken való részvétel
+              </span>
+            </div>
+            <FontAwesomeIcon className='homepage-icons' icon={faCheckDouble} />
           </div>
         </div>
       </div>

@@ -40,7 +40,7 @@ export default function AboutUsView({
           >
             <img src='https://cdn.szmsz.press/wp-content/uploads/2018/12/kecske.jpg' />
             <h2>Iglódi Zoltán</h2>
-            <h2>Ügyvezető-igazgató</h2>
+            <h2>Ügyvezető</h2>
           </div>
           <div className={switchChecked ? 'ceo-content-bright' : 'ceo-content-dark'}>
             <span>
